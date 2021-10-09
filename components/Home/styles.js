@@ -1,8 +1,5 @@
-import { styled } from '@mui/system';
+import { makeStyles } from '@material-ui/core';
 
-export const Div = styled('div')({
-  color: 'darkslategray',
-  backgroundColor: 'aliceblue',
-  padding: 8,
-  borderRadius: 4,
-});
+export const useStyles = makeStyles(() => ({
+  container: {},
+}));

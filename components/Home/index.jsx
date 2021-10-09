@@ -1,13 +1,8 @@
 import React from 'react';
-import { Div } from './styles';
-import ToggleColorMode from '../test';
+import Switch from '@material-ui/core/Switch';
 
 const Home = () => {
-  return (
-    <Div>
-      <ToggleColorMode />
-    </Div>
-  );
+  return <p>dawd</p>;
 };
 
 export default Home;
