@@ -1,6 +1,15 @@
 import { createTheme } from '@material-ui/core/styles';
 
 const themeLight = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 601,
+      md: 961,
+      lg: 1281,
+      xl: 1921,
+    },
+  },
   palette: {
     background: {
       default: '#fff',
@@ -18,6 +27,15 @@ const themeLight = createTheme({
 });
 
 const themeDark = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 601,
+      md: 961,
+      lg: 1281,
+      xl: 1921,
+    },
+  },
   palette: {
     background: {
       default: '#1A1D28',

@@ -13,7 +13,7 @@ const Courses = () => {
       .fill(10)
       .map((course, index) => {
         return (
-          <Grid item xs={4} key={index}>
+          <Grid item lg={3} md={4} xs={12} key={index}>
             <Paper className={classes.paper}>
               <Course />
             </Paper>

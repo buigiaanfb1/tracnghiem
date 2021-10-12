@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className={classes.root}>
       <div className={classes.containerNavigationBar}>
-        <NavigationBar />
+        {/* <NavigationBar /> */}
       </div>
       <div className={classes.containerHome}>
         <Dashboard />

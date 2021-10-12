@@ -6,6 +6,9 @@ import HomeIcon from '@material-ui/icons/Home';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import HistoryIcon from '@material-ui/icons/History';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NavLink from './NavLink';
 
@@ -25,16 +28,16 @@ const NavigationBar = () => {
           navLinkName="home"
         />
         <NavLink
-          IconBold={SettingsIcon}
-          IconOutlined={SettingsOutlinedIcon}
+          IconBold={HistoryIcon}
+          IconOutlined={HistoryIcon}
           router={router}
-          navLinkName="settings"
+          navLinkName="history"
         />
         <NavLink
-          IconBold={HomeIcon}
-          IconOutlined={HomeOutlinedIcon}
+          IconBold={AccountCircleIcon}
+          IconOutlined={AccountCircleOutlinedIcon}
           router={router}
-          navLinkName="homed"
+          navLinkName="user"
         />
         <NavLink
           IconBold={SettingsIcon}

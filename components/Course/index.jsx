@@ -12,10 +12,10 @@ const Course = () => {
           className={classes.cover}
         />
         <div className={classes.containerContent}>
-          <Typography className={classes.title}>Lich Su</Typography>
+          <Typography className={classes.title}>Lịch sử</Typography>
           <Typography className={classes.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing.Lorem ipsum dolor
-            sit amet consectetur adipisicing.
+            Độ khó: Trung bình. <br />
+            Tổng số câu: 40.
           </Typography>
           <div className={classes.containerButton}>
             <Button className={classes.buttonDoIt}>
