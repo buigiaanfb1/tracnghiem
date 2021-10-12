@@ -19,24 +19,26 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   buttonCreate: {
-    background: '#21B573',
-    color: '#FFF',
-    borderRadius: '8px',
-    padding: '0.75rem 1.25rem',
-    '& .MuiButton-label > p': {
-      fontSize: '14px',
-      textTransform: 'none',
-      fontWeight: '500',
-      lineHeight: '1.2',
-    },
-    '& .MuiButton-label > svg': {
-      fontSize: '12px',
-      fontWeight: '700',
-      marginLeft: '4px',
-    },
-    '&:hover': {
-      background: '#059e59',
+    '&.MuiButton-root': {
+      background: '#21B573',
       color: '#FFF',
+      borderRadius: '8px',
+      padding: '0.75rem 1.25rem',
+      '& .MuiButton-label > p': {
+        fontSize: '14px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+      },
+      '& .MuiButton-label > svg': {
+        fontSize: '12px',
+        fontWeight: '700',
+        marginLeft: '4px',
+      },
+      '&:hover': {
+        background: '#059e59',
+        color: '#FFF',
+      },
     },
   },
   containerCourses: {

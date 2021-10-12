@@ -6,7 +6,7 @@ const Course = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Paper className={classes.containerItem}>
+      <div className={classes.containerItem}>
         <img
           src="https://marketing24h.vn/wp-content/uploads/2020/11/ROI-Content-Marketing.jpg"
           className={classes.cover}
@@ -23,7 +23,7 @@ const Course = () => {
             </Button>
           </div>
         </div>
-      </Paper>
+      </div>
     </div>
   );
 };
