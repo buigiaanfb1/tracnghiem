@@ -9,6 +9,8 @@ export const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     height: '100vh',
+    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.05)',
+    zIndex: '99',
   },
   containerLogo: {
     display: 'flex',
@@ -54,7 +56,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     padding: '1rem',
     borderRadius: '8px',
-    backgroundColor: '#E4E2FC',
+    backgroundColor: 'rgba(20, 0, 255, 0.2)',
     cursor: 'pointer',
     '& svg': {
       color: '#918fff',

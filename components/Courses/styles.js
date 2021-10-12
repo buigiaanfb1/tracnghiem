@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
+    '&.MuiPaper-elevation1': {
+      boxShadow: 'none',
+    },
     padding: '0.75rem',
     boxShadow: 'none',
     textAlign: 'center',

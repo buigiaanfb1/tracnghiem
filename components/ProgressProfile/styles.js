@@ -7,6 +7,9 @@ export const useStyles = makeStyles((theme) => ({
     right: '0',
     top: '0',
     width: '300px',
+    zIndex: '99',
+    minHeight: '100vh',
+    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.05)',
   },
 
   container: {
@@ -61,11 +64,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   containerJoinedYellow: {
     width: '48%',
-    background: 'rgb(254,247,236)',
+    background: 'rgb(255, 156, 0, 0.2)',
   },
   containerTotalGreen: {
     width: '48%',
-    background: 'rgb(233,249,242)',
+    background: 'rgba(0, 255, 143, 0.2)',
   },
 
   iconTotalYellow: {

@@ -15,7 +15,7 @@ const NavigationBar = () => {
   return (
     <div className={classes.root}>
       <div className={classes.containerLogo}>
-        <Typography className={classes.logo}>Easy10</Typography>
+        <Typography className={classes.logo}>Logo</Typography>
       </div>
       <div className={classes.containerItems}>
         <NavLink
