@@ -64,11 +64,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   containerJoinedYellow: {
     width: '48%',
-    background: 'rgb(255, 156, 0, 0.2)',
+    background: 'rgb(255, 156, 0, 0.15)',
   },
   containerTotalGreen: {
     width: '48%',
-    background: 'rgba(0, 255, 143, 0.2)',
+    background: 'rgba(0, 255, 143, 0.15)',
   },
 
   iconTotalYellow: {

@@ -74,11 +74,11 @@ const Landing = () => {
               </Grid>
               <Grid item xs={6}>
                 <Paper className={classes.paper}>
-                  {/* <div
+                  <div
                     id="react-logo"
                     style={{ height: 525 }}
                     className={classes.lottie}
-                  /> */}
+                  />
                 </Paper>
               </Grid>
             </Grid>

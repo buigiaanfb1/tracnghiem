@@ -68,9 +68,10 @@ export const useStyles = makeStyles((theme) => ({
   iconLogout: {
     color: '#C9917C',
   },
+
   signOutContainer: {
     position: 'absolute',
-    bottom: '0',
+    bottom: '10%',
     left: '50%',
     transform: 'translate(-50%, 0)',
     width: '100%',

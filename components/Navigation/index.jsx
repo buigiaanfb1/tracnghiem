@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import React from 'react';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
@@ -25,7 +25,7 @@ const NavigationBar = () => {
           IconBold={HomeIcon}
           IconOutlined={HomeOutlinedIcon}
           router={router}
-          navLinkName="home"
+          navLinkName=""
         />
         <NavLink
           IconBold={HistoryIcon}
@@ -46,7 +46,6 @@ const NavigationBar = () => {
           navLinkName="settings"
         />
       </div>
-
       <div className={classes.signOutContainer}>
         <ExitToAppIcon className={classes.iconLogout} />
       </div>

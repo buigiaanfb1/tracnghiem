@@ -1,5 +1,9 @@
-import Home from '../templates/Home';
+import Layout from '../components/layout/Layout';
 
-export default function Index() {
+const Index = () => {
   return <div>muahahamuahahamuahahamuahahamuahaha</div>;
-}
+};
+
+Index.getLayout = (page) => <Layout>{page}</Layout>;
+
+export default Index;

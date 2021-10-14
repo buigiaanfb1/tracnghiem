@@ -44,4 +44,59 @@ export const useStyles = makeStyles((theme) => ({
   containerCourses: {
     padding: '0rem 2rem',
   },
+
+  containerButtonLoginSignUp: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonLogin: {
+    '&.MuiButton-root': {
+      height: '40px',
+      background: 'transparent',
+      color: '#5951ed',
+      borderRadius: '8px',
+      padding: '0.75rem 1.25rem',
+      border: '2px solid #5951ed',
+      transition: 'all 0.3s',
+      '& .MuiButton-label > p': {
+        fontSize: '14px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+      },
+
+      '&:hover': {
+        background: '#3027d9',
+        border: '2px solid #3027d9',
+        color: '#FFF',
+        transition: 'all 0.3s',
+      },
+    },
+  },
+
+  buttonSignUp: {
+    '&.MuiButton-root': {
+      height: '40px',
+      background: '#5951ed',
+      color: '#fff',
+      border: '2px solid #5951ed',
+      marginLeft: '1rem',
+      borderRadius: '8px',
+      padding: '0.75rem 1.25rem',
+      transition: 'all 0.3s',
+      '& .MuiButton-label > p': {
+        fontSize: '14px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+      },
+      '&:hover': {
+        background: '#3027d9',
+        border: '2px solid #3027d9',
+        color: '#FFF',
+        transition: 'all 0.3s',
+      },
+    },
+  },
 }));

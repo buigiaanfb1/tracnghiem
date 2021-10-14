@@ -13,7 +13,7 @@ export const useStyles = makeStyles((theme) => ({
   containerItem: {
     borderRadius: '8px',
     background: theme.palette.background.course,
-    boxShadow: '0 .125rem .5rem 0 rgba(48, 53, 69, 0.08)',
+    boxShadow: '0 .125rem .2rem 0 rgba(48, 53, 69, 0.08)',
     textAlign: 'left',
     transition: 'transform 0.5s',
     '&:hover': {

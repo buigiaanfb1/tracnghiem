@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from '../SearchBar';
 import { useStyles } from './styles';
 import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
+import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import Courses from '../Courses';
 
@@ -12,9 +12,21 @@ const Dashboard = () => {
     <div className={`${classes.root} ${classes.bodyScroll}`}>
       <div className={classes.containerHeader}>
         <SearchBar />
-        <Button className={classes.buttonCreate}>
+        <div className={classes.containerButtonLoginSignUp}>
+          <Link href="/login" passHref>
+            <Button className={classes.buttonLogin}>
+              <Typography>Login</Typography>
+            </Button>
+          </Link>
+          <Link href="/signup" passHref>
+            <Button className={classes.buttonSignUp}>
+              <Typography>Sign Up</Typography>
+            </Button>
+          </Link>
+        </div>
+        {/* <Button className={classes.buttonCreate}>
           <Typography>Create Quiz</Typography> <AddIcon />
-        </Button>
+        </Button> */}
       </div>
       <div className={classes.containerCourses}>
         <Courses />

@@ -20,6 +20,9 @@ const themeLight = createTheme({
       primary: '#5B587C',
       secondary: '#7D7C85',
     },
+    border: {
+      default: '#EEEDF4',
+    },
   },
   // typography: {
   //   fontFamily: '"Montserrat", sans-serif',
@@ -45,6 +48,9 @@ const themeDark = createTheme({
     text: {
       primary: '#ffffff',
       secondary: '#939bb4',
+    },
+    border: {
+      default: '#EEEDF4',
     },
   },
   // typography: {

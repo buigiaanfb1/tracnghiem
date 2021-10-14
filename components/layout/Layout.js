@@ -4,10 +4,11 @@ import Navigation from '../Navigation';
 import nprogress from 'nprogress';
 import Router from 'next/router';
 
-const Layout = ({ children, title = 'slogan 10 words' }) => {
+const Layout = ({ children, title = 'Easy10', path }) => {
   Router.onRouteChangeStart = () => nprogress.start();
   Router.onRouteChangeComplete = () => nprogress.set(1.0);
-  Router.onRouteChangeError = () => nprogress.done();
+  Router.onRouteChangeError = () => nprogress.done(1.0);
+  const pathname = ['/login', '/signup'];
   return (
     <div>
       <Head>
@@ -15,6 +16,7 @@ const Layout = ({ children, title = 'slogan 10 words' }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0,width=device-width" />
       </Head>
+      {/* {pathname.includes(path) ? null : <Navigation />} */}
       <Navigation />
       {children}
     </div>
