@@ -1,5 +1,5 @@
-import { Button, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
 import HomeIcon from '@material-ui/icons/Home';
@@ -10,11 +10,24 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import HistoryIcon from '@material-ui/icons/History';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useSelector } from 'react-redux';
 import NavLink from './NavLink';
 
 const NavigationBar = () => {
   const classes = useStyles();
   const router = useRouter();
+  // const [theme, setTheme] = useState({
+  //   count: 1,
+  // });
+  // const { theme: themeRedux } = useSelector((state) => state.theme);
+
+  // useEffect(() => {
+  //   setTheme({
+  //     ...theme,
+  //     count: theme.count + 1,
+  //   });
+  // }, [themeRedux]);
+
   return (
     <div className={classes.root}>
       <div className={classes.containerLogo}>

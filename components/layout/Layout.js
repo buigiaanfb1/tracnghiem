@@ -9,6 +9,7 @@ const Layout = ({ children, title = 'Easy10', path }) => {
   Router.onRouteChangeComplete = () => nprogress.set(1.0);
   Router.onRouteChangeError = () => nprogress.done(1.0);
   // const pathname = ['/login', '/signup'];
+
   return (
     <div>
       <Head>
@@ -22,5 +23,7 @@ const Layout = ({ children, title = 'Easy10', path }) => {
     </div>
   );
 };
+
+export const getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Layout;

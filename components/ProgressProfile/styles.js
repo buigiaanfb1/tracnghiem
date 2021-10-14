@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
   containerHeader: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
   containerIconHeader: {
     display: 'flex',

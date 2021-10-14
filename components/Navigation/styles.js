@@ -3,11 +3,11 @@ import { makeStyles } from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
-    top: '2px',
+    top: '0px',
     left: '0',
     width: '100px',
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    // backgroundColor: theme.palette.background.default,
     height: '100vh',
     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.05)',
     zIndex: '1',
