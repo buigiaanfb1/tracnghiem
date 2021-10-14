@@ -7,23 +7,6 @@ export const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
   },
-  containerLogin: {
-    width: '50%',
-    padding: '5rem 8rem',
-  },
-  containerBigImg: {
-    width: '50%',
-    backgroundColor: theme.palette.background.course,
-  },
-  bigImg: {
-    width: '100%',
-    height: '100vh',
-    backgroundImage:
-      "url('https://account.mongodb.com/static/images/auth/login_promo_desktop.png')",
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: '50% 40%',
-  },
   title: {
     fontSize: '32px',
     fontWeight: '500',
@@ -56,7 +39,7 @@ export const useStyles = makeStyles((theme) => ({
   buttonLogin: {
     '&.MuiButton-root': {
       width: '100%',
-      margin: '1.5rem 0',
+      margin: '0.75rem 0',
       display: 'flex',
       borderRadius: '24px',
       padding: '0.5rem 0',
@@ -100,7 +83,6 @@ export const useStyles = makeStyles((theme) => ({
     '& .MuiTypography-root': {
       fontSize: '16px',
       fontWeight: '600',
-      marginTop: '1.25rem',
     },
     '& input': {
       width: '100%',
@@ -115,6 +97,40 @@ export const useStyles = makeStyles((theme) => ({
       '&::placeholder': {
         color: theme.palette.text.secondary,
       },
+    },
+  },
+  forgotPassword: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    margin: '0.75rem 0 0 0',
+  },
+  blackText: {
+    '&.MuiTypography-root': {
+      display: 'inline-block',
+      fontSize: '14px',
+      fontWeight: '500',
+      opacity: 1,
+    },
+  },
+  purpleText: {
+    display: 'inline-block',
+    fontSize: '14px',
+    fontWeight: '500',
+    opacity: 1,
+    color: `#5138EE`,
+    cursor: 'pointer',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  },
+  error: {
+    '&.MuiTypography-root': {
+      height: '18px',
+      margin: '0.2rem',
+      fontSize: '12px',
+      color: 'red',
+      fontWeight: '500',
     },
   },
 }));

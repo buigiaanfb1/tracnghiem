@@ -1,15 +1,15 @@
 import React from 'react';
-import { loginInputs } from '../../utils/InputForm';
 import { useStyles } from '../../styles/SignUpLoginStyles';
+import { signUpInputs } from '../../utils/InputForm';
 import Form from '../../components/Form';
 import CoverSignUpLogin from '../../components/CoverSignUpLogin';
 
-const Login = () => {
+const SignUp = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <div className={classes.containerLogin}>
-        <Form type="login" title="Login" inputs={loginInputs} />
+        <Form type="signup" title="Sign Up" inputs={signUpInputs} />
       </div>
       <div className={classes.containerBigImg}>
         <CoverSignUpLogin />
@@ -18,4 +18,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
