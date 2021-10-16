@@ -6,12 +6,14 @@ const NavLink = ({
   router,
   IconBold,
   IconOutlined,
-  navLinkName = '/',
+  navLinkName,
+  abstractName,
   classNames,
   content,
 }) => {
-  return router.pathname == '/' + navLinkName ? (
-    <Link href={'/' + navLinkName} passHref>
+  return router.asPath === navLinkName ||
+    (abstractName && router.pathname.includes(abstractName)) ? (
+    <Link href={navLinkName} passHref>
       <div className={classNames.itemActive}>
         <IconBold className={classNames.icon} />
         <Typography className={classNames.titleLink}>{content}</Typography>

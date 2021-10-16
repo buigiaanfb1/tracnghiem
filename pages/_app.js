@@ -12,12 +12,29 @@ function MyApp({ Component, pageProps }) {
     setLight((prev) => !prev);
   };
 
+  useEffect(() => {
+    console.log(light);
+    let lStorage = JSON.parse(localStorage.getItem('ey10_app_user_settings'));
+    if (lStorage) {
+      setLight(lStorage.theme);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    localStorage.setItem(
+      'ey10_app_user_settings',
+      JSON.stringify({
+        theme: light,
+      })
+    );
+  }, [light]);
+
   const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(
     <ThemeProvider theme={!light ? themeLight : themeDark}>
       <CssBaseline />
-      <ToggleTheme onChangeTheme={handleChangeTheme} />
+      <ToggleTheme onChangeTheme={handleChangeTheme} theme={light} />
       <Component {...pageProps} />
     </ThemeProvider>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from '../../styles/SignUpLoginStyles';
-import { signUpInputs } from '../../utils/InputForm';
+import { signUpInputs } from '../../common/InputForm';
 import Form from '../../components/Form';
 import CoverSignUpLogin from '../../components/CoverSignUpLogin';
 

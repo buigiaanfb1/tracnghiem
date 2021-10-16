@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Typography } from '@material-ui/core';
+import React from 'react';
+import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
 import HomeIcon from '@material-ui/icons/Home';
@@ -11,46 +11,34 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import HistoryIcon from '@material-ui/icons/History';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NavLink from './../NavLink';
+import { mainNavigate } from '../../common/Link';
 
 const NavigationBar = () => {
   const classes = useStyles();
   const router = useRouter();
+
+  const handleRenderNavigate = () => {
+    return mainNavigate.map((link) => {
+      return (
+        <NavLink
+          IconBold={link.IconBold}
+          IconOutlined={link.IconOutlined}
+          router={router}
+          navLinkName={link.navLinkName}
+          abstractName={link.abstractName}
+          classNames={classes}
+          key={link.keyName}
+        />
+      );
+    });
+  };
 
   return (
     <div className={classes.root}>
       <div className={classes.containerLogo}>
         <Typography className={classes.logo}>Logo</Typography>
       </div>
-      <div className={classes.containerItems}>
-        <NavLink
-          IconBold={HomeIcon}
-          IconOutlined={HomeOutlinedIcon}
-          router={router}
-          navLinkName=""
-          classNames={classes}
-        />
-        <NavLink
-          IconBold={HistoryIcon}
-          IconOutlined={HistoryIcon}
-          router={router}
-          navLinkName="history"
-          classNames={classes}
-        />
-        <NavLink
-          IconBold={AccountCircleIcon}
-          IconOutlined={AccountCircleOutlinedIcon}
-          router={router}
-          navLinkName="user"
-          classNames={classes}
-        />
-        <NavLink
-          IconBold={SettingsIcon}
-          IconOutlined={SettingsOutlinedIcon}
-          router={router}
-          navLinkName="settings"
-          classNames={classes}
-        />
-      </div>
+      <div className={classes.containerItems}>{handleRenderNavigate()}</div>
       <div className={classes.signOutContainer}>
         <ExitToAppIcon className={classes.iconLogout} />
       </div>

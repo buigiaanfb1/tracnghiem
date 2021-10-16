@@ -43,7 +43,7 @@ const NavigationBar = () => {
             IconBold={AccountCircleIcon}
             IconOutlined={AccountCircleOutlinedIcon}
             router={router}
-            navLinkName="user"
+            navLinkName="profile"
             classNames={classes}
             content="Profile"
           />
