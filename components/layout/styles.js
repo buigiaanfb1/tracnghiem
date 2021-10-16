@@ -5,13 +5,22 @@ export const useStyles = makeStyles((theme) => ({
     position: 'relative',
     display: 'flex',
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: 'transparent',
   },
-  containerHome: {
-    width: '100%',
+  containerNavigationBar: {
+    width: '100px',
+  },
+  containerNavigationBarOnHide: {
+    display: 'none',
+  },
+  containerComponent: {
+    width: 'calc(100vw - 100px)',
     minHeight: '100vh',
     position: 'relative',
     overflow: 'auto !important',
     transition: 'width 1s',
+  },
+  containerComponentOnHide: {
+    width: 'calc(100vw)',
   },
 }));

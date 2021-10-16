@@ -10,23 +10,11 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import HistoryIcon from '@material-ui/icons/History';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import { useSelector } from 'react-redux';
-import NavLink from './NavLink';
+import NavLink from './../NavLink';
 
 const NavigationBar = () => {
   const classes = useStyles();
   const router = useRouter();
-  // const [theme, setTheme] = useState({
-  //   count: 1,
-  // });
-  // const { theme: themeRedux } = useSelector((state) => state.theme);
-
-  // useEffect(() => {
-  //   setTheme({
-  //     ...theme,
-  //     count: theme.count + 1,
-  //   });
-  // }, [themeRedux]);
 
   return (
     <div className={classes.root}>
@@ -39,24 +27,28 @@ const NavigationBar = () => {
           IconOutlined={HomeOutlinedIcon}
           router={router}
           navLinkName=""
+          classNames={classes}
         />
         <NavLink
           IconBold={HistoryIcon}
           IconOutlined={HistoryIcon}
           router={router}
           navLinkName="history"
+          classNames={classes}
         />
         <NavLink
           IconBold={AccountCircleIcon}
           IconOutlined={AccountCircleOutlinedIcon}
           router={router}
           navLinkName="user"
+          classNames={classes}
         />
         <NavLink
           IconBold={SettingsIcon}
           IconOutlined={SettingsOutlinedIcon}
           router={router}
           navLinkName="settings"
+          classNames={classes}
         />
       </div>
       <div className={classes.signOutContainer}>

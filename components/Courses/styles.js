@@ -20,5 +20,30 @@ export const useStyles = makeStyles((theme) => ({
   },
   containerCourses: {
     padding: '0 0.25rem',
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  item: {
+    ['@media (min-width:1280px)']: {
+      width: '20%',
+    },
+    [theme.breakpoints.up('xl')]: {
+      width: 'calc(100% / 6)',
+    },
+    ['@media (max-width:1420px)']: {
+      width: '20%',
+    },
+    ['@media (max-width:1280px)']: {
+      width: '25%',
+    },
+    [theme.breakpoints.down('md')]: {
+      width: 'calc(100% / 4)',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: 'calc(100% / 3)',
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: 'calc(100%)',
+    },
   },
 }));

@@ -8,7 +8,9 @@ import Courses from '../Courses';
 
 const UserProfile = () => {
   const classes = useStyles();
-  return <div className={`${classes.root} ${classes.bodyScroll}`}></div>;
+  return (
+    <div className={`${classes.root} ${classes.bodyScroll}`}>dasdasdadasd</div>
+  );
 };
 
 export default UserProfile;

@@ -13,11 +13,11 @@ const Courses = () => {
       .fill(10)
       .map((course, index) => {
         return (
-          <Grid item xl={2} lg={3} md={3} xs={12} key={index}>
+          <div className={classes.item} key={index}>
             <Paper className={classes.paper}>
               <Course />
             </Paper>
-          </Grid>
+          </div>
         );
       });
   };
@@ -25,9 +25,7 @@ const Courses = () => {
     <div className={classes.root}>
       <div className={classes.container}>
         <Typography className={classes.categoryType}>Popular</Typography>
-        <div className={classes.containerCourses}>
-          <Grid container>{handleRenderCourse()}</Grid>
-        </div>
+        <div className={classes.containerCourses}>{handleRenderCourse()}</div>
       </div>
     </div>
   );

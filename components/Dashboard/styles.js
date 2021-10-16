@@ -17,6 +17,14 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    [theme.breakpoints.down('xs')]: {
+      padding: '1rem 1rem',
+      flexDirection: 'column-reverse',
+      justifyContent: 'center',
+      '& > :first-child': {
+        marginTop: '1rem',
+      },
+    },
   },
   buttonCreate: {
     '&.MuiButton-root': {
@@ -43,6 +51,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   containerCourses: {
     padding: '0rem 2rem',
+    [theme.breakpoints.down('xs')]: {
+      padding: '0',
+    },
   },
 
   containerButtonLoginSignUp: {

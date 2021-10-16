@@ -15,6 +15,8 @@ const themeLight = createTheme({
       default: '#fff',
       paper: '#FFF9FF',
       course: '#fff',
+      headerM: 'rgba(255,255,255,0.72)',
+      contract: '#000',
     },
     text: {
       primary: '#5B587C',
@@ -44,6 +46,8 @@ const themeDark = createTheme({
       default: '#1A1D28',
       paper: '#13141B',
       course: '#282E3E',
+      headerM: 'rgba(10, 25, 41, 0.72)',
+      contract: '#fff',
     },
     text: {
       primary: '#ffffff',

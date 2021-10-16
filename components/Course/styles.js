@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     objectFit: 'cover',
     borderTopLeftRadius: '8px',
     borderTopRightRadius: '8px',
-    height: '180px',
+    height: 'auto',
   },
   containerItem: {
     borderRadius: '8px',
