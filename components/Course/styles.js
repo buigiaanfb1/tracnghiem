@@ -27,6 +27,7 @@ export const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: '20px',
     fontWeight: '500',
+    color: theme.palette.text.contract,
   },
   description: {
     color: theme.palette.text.secondary,

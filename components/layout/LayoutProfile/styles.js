@@ -6,17 +6,24 @@ export const useStyles = makeStyles((theme) => ({
   },
   container: {
     padding: '1rem',
+    minHeight: '100vh',
+    backgroundColor: theme.palette.background.paper,
+  },
+  containerLeftRight: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    padding: '1rem 0 0 2rem',
   },
   containerTabs: {
-    width: '100%',
-    margin: '1rem 0 0 2rem',
-    display: 'inline-flex',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+    width: '275px',
     backgroundColor: theme.palette.background.course,
     borderRadius: '24px',
     boxShadow: '0 .125rem .3rem 0 rgba(48, 53, 69, 0.08)',
-    padding: '0.5rem 0 2rem 0',
+    padding: '0.5rem 0 1.5rem 0',
+  },
+  containerContent: {
+    width: 'calc(100vw - 275px)',
+    padding: '0 3rem',
   },
   titleContainer: {
     padding: '0.5rem 1rem',
@@ -71,5 +78,33 @@ export const useStyles = makeStyles((theme) => ({
       display: 'block',
       background: theme.palette.background.contract,
     },
+  },
+  containerBreadcrumb: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '2rem',
+  },
+  containerAvatar: {
+    marginRight: '1rem',
+    '& img': {
+      width: '55px',
+      height: '55px',
+      borderRadius: '50%',
+      boxShadow: '0 .125rem .2rem 0 rgba(48, 53, 69, 0.08)',
+    },
+  },
+  name: {
+    fontSize: '20px',
+    fontWeight: '500',
+  },
+  slash: {
+    opacity: '0.5',
+    margin: '0 0.4rem',
+  },
+  path: {
+    textTransform: 'capitalize',
+  },
+  description: {
+    fontSize: '14px',
   },
 }));

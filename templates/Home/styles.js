@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
+    transition: 'background-color 0.5s',
   },
   containerHome: {
     width: '100%',

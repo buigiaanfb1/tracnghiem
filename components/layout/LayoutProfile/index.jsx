@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Grid, Typography } from '@material-ui/core';
 import cls from 'classnames';
+import BreadcrumbProfile from '../../BreadcrumbProfile';
 
 const LayoutProfile = ({ children }) => {
   const classes = useStyles();
@@ -34,16 +35,13 @@ const LayoutProfile = ({ children }) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <div className={classes.containerTabs}>
-              {handleRenderTabs(profileTabs)}
-            </div>
-          </Grid>
-          <Grid item xs={6} sm={3}>
-            <div className={classes.containerContent}>{children}</div>
-          </Grid>
-        </Grid>
+        <BreadcrumbProfile router={router} classNames={classes} />
+        <div className={classes.containerLeftRight}>
+          <div className={classes.containerTabs}>
+            {handleRenderTabs(profileTabs)}
+          </div>
+          <div className={classes.containerContent}>{children}</div>
+        </div>
       </div>
     </div>
   );

@@ -7,9 +7,9 @@ const Input = ({
   label = 'Email',
   type = 'text',
   name,
-  register,
-  required,
-  errors,
+  register = null,
+  required = null,
+  errors = null,
 }) => {
   console.log(errors);
   return (

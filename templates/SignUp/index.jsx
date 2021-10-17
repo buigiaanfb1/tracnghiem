@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from '../../styles/SignUpLoginStyles';
 import { signUpInputs } from '../../common/InputForm';
-import Form from '../../components/Form';
+import Form from '../../components/Form/FormLoginSignUp';
 import CoverSignUpLogin from '../../components/CoverSignUpLogin';
 
 const SignUp = () => {

@@ -6,7 +6,11 @@ import { Typography } from '@material-ui/core';
 
 const PaymentBilling = () => {
   const classes = useStyles();
-  return <div>ok</div>;
+  return (
+    <div>
+      <Typography className={classes.title}>Coming Soon!</Typography>
+    </div>
+  );
 };
 
 export default PaymentBilling;

@@ -1,7 +1,7 @@
 import { Button, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import React from 'react';
-import Input from '../Input';
+import Input from '../../Input';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useForm } from 'react-hook-form';
