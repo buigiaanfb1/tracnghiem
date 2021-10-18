@@ -13,7 +13,7 @@ const themeLight = createTheme({
   palette: {
     background: {
       default: '#fff',
-      paper: '#FFF9FF',
+      paper: '#F6F9FC',
       course: '#fff',
       headerM: 'rgba(255,255,255,0.72)',
       contract: '#000',

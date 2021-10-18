@@ -82,7 +82,7 @@ export const useStyles = makeStyles((theme) => ({
   containerBreadcrumb: {
     display: 'flex',
     alignItems: 'center',
-    padding: '2rem',
+    padding: '1rem 2rem',
   },
   containerAvatar: {
     marginRight: '1rem',

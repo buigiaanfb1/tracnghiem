@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import Courses from '../Courses';
+import CategoryPins from '../CategoryPins';
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -28,6 +29,7 @@ const Dashboard = () => {
           <Typography>Create Quiz</Typography> <AddIcon />
         </Button> */}
       </div>
+      <CategoryPins />
       <div className={classes.containerCourses}>
         <Courses />
       </div>
