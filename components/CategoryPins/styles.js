@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     background: `url(https://learn.viblo.asia/images/topic-recommend-bg.png) no-repeat 100% 0`,
     backgroundSize: 'cover',
     // backgroundAttachment: 'fixed',
-    padding: '2rem',
+    padding: '2rem 2.5rem',
     margin: '0rem 0 2rem',
   },
   titleContainer: {
@@ -22,6 +22,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontSize: '16px',
+    padding: '0.5rem',
     fontWeight: '700',
   },
   containerPins: {

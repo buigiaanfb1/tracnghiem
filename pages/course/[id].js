@@ -3,13 +3,10 @@ import Layout from '../../components/layout/Layout';
 import { getSession } from 'next-auth/client';
 import { wrapper } from '../../redux/config';
 import LayoutProfile from '../../components/layout/LayoutProfile';
+import IntroduceCourse from '../../components/IntroduceCourse';
 
 const Index = () => {
-  return (
-    <LayoutProfile>
-      <Account />
-    </LayoutProfile>
-  );
+  return <IntroduceCourse />;
 };
 
 Index.getLayout = (page) => <Layout title="Account | Easy10">{page}</Layout>;

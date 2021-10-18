@@ -22,6 +22,7 @@ const themeLight = createTheme({
       primary: '#5B587C',
       secondary: '#7D7C85',
       contract: '#000',
+      white: '#fff',
     },
     border: {
       default: '#EEEDF4',
@@ -54,6 +55,7 @@ const themeDark = createTheme({
       primary: '#ffffff',
       secondary: '#939bb4',
       contract: '#fff',
+      white: '#fff',
     },
     border: {
       default: '#EEEDF4',
