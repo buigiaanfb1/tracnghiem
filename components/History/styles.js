@@ -13,4 +13,7 @@ export const useStyles = makeStyles((theme) => ({
     inset: '0',
     overflow: 'hidden auto',
   },
+  container: {
+    display: 'flex',
+  },
 }));

@@ -6,13 +6,16 @@ import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import Courses from '../Courses';
 import HistoryTable from '../HistoryTable';
+import ProgressProfile from '../ProgressProfile';
 
 const History = () => {
   const classes = useStyles();
   return (
     <div className={`${classes.root} ${classes.bodyScroll}`}>
-      <Typography variant="h5">My History</Typography>
-      <HistoryTable />
+      <div className={classes.container}>
+        <HistoryTable />
+        <ProgressProfile />
+      </div>
     </div>
   );
 };

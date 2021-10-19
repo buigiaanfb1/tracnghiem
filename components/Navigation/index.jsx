@@ -2,16 +2,10 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
-import HomeIcon from '@material-ui/icons/Home';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import SettingsIcon from '@material-ui/icons/Settings';
-import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import HistoryIcon from '@material-ui/icons/History';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NavLink from './../NavLink';
 import { mainNavigate } from '../../common/Link';
+import Link from 'next/link';
 
 const NavigationBar = () => {
   const classes = useStyles();
@@ -36,7 +30,9 @@ const NavigationBar = () => {
   return (
     <div className={classes.root}>
       <div className={classes.containerLogo}>
-        <Typography className={classes.logo}>Logo</Typography>
+        <Link href="/" passHref>
+          <Typography className={classes.logo}>Logo</Typography>
+        </Link>
       </div>
       <div className={classes.containerItems}>{handleRenderNavigate()}</div>
       <div className={classes.signOutContainer}>

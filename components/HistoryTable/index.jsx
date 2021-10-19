@@ -8,27 +8,28 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import { Typography } from '@material-ui/core';
 
 const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+  { id: 'name', label: 'Bài Thi', minWidth: 170 },
+  { id: 'code', label: 'Chế Độ', minWidth: 100 },
   {
     id: 'population',
-    label: 'Population',
+    label: 'Kết Quả',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
     id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
+    label: 'Thời Gian',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
     id: 'density',
-    label: 'Density',
+    label: 'Chi Tiết',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toFixed(2),
@@ -37,11 +38,11 @@ const columns = [
 
 function createData(name, code, population, size) {
   const density = population / size;
-  return { name, code, population, size, density };
+  return { name, code, population, size, size };
 }
 
 const rows = [
-  createData('India', 'IN', 1324171354, 3287263),
+  createData('React core concepts', 'Thực hành', 'Trượt', '19/10/2021', 'icon'),
   createData('China', 'CN', 1403500365, 9596961),
   createData('Italy', 'IT', 60483973, 301340),
   createData('United States', 'US', 327167434, 9833520),

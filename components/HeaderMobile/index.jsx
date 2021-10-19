@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useStyles } from './styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import NavigationMobile from '../NavigationMobile';
+import Link from 'next/link';
 
 const HeaderMobile = () => {
   const classes = useStyles();
@@ -17,7 +18,9 @@ const HeaderMobile = () => {
           <div className={classes.buttonOpenNavBarContainer}>
             <MenuIcon className={classes.icon} />
           </div>
-          <Typography className={classes.logoText}>Easy10</Typography>
+          <Link href="" passHref>
+            <Typography className={classes.logoText}>Easy10</Typography>
+          </Link>
         </div>
       </div>
       {visible ? (

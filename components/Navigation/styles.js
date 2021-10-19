@@ -21,6 +21,7 @@ export const useStyles = makeStyles((theme) => ({
   logo: {
     fontSize: '24px',
     fontWeight: 700,
+    cursor: 'pointer',
   },
   containerItems: {
     display: 'flex',

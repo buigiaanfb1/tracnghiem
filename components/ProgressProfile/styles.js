@@ -1,7 +1,10 @@
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
-  root: {
+  root: {},
+
+  container: {
+    padding: '2rem 1rem',
     flexGrow: 1,
     position: 'fixed',
     right: '0',
@@ -9,11 +12,8 @@ export const useStyles = makeStyles((theme) => ({
     width: '300px',
     zIndex: '99',
     minHeight: '100vh',
+    backgroundColor: theme.palette.background.default,
     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.05)',
-  },
-
-  container: {
-    padding: '2rem 1rem',
   },
   containerHeader: {
     display: 'flex',

@@ -12,9 +12,9 @@ const themeLight = createTheme({
   },
   palette: {
     background: {
-      default: '#fff',
+      default: '#fafafa',
       paper: '#F6F9FC',
-      course: '#fff',
+      course: '#fafafa',
       headerM: 'rgba(255,255,255,0.72)',
       contract: '#000',
     },
@@ -22,7 +22,7 @@ const themeLight = createTheme({
       primary: '#5B587C',
       secondary: '#7D7C85',
       contract: '#000',
-      white: '#fff',
+      white: '#fafafa',
     },
     border: {
       default: '#EEEDF4',
@@ -49,13 +49,13 @@ const themeDark = createTheme({
       paper: '#13141B',
       course: '#282E3E',
       headerM: 'rgba(10, 25, 41, 0.72)',
-      contract: '#fff',
+      contract: '#fafafa',
     },
     text: {
-      primary: '#ffffff',
+      primary: '#fafafa',
       secondary: '#939bb4',
-      contract: '#fff',
-      white: '#fff',
+      contract: '#fafafa',
+      white: '#fafafa',
     },
     border: {
       default: '#EEEDF4',

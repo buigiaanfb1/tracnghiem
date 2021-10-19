@@ -30,6 +30,7 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: '8px',
     fontSize: '20px',
     fontWeight: '500',
+    cursor: 'pointer',
   },
   exitContainer: {
     position: 'fixed',

@@ -21,7 +21,20 @@ const Layout = ({ children, title = 'Easy10', path }) => {
   }, []);
 
   const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
-  if (!load) return <div></div>;
+  if (!load)
+    return (
+      <div>
+        <Head>
+          <title>{title}</title>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0,width=device-width"
+          />
+        </Head>
+        {children}
+      </div>
+    );
   else
     return (
       <div>

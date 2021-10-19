@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: '72%',
     marginTop: '1rem',
     boxShadow: '0 .125rem 0.5rem 0 rgba(48, 53, 69, 0.08)',
     backgroundColor: theme.palette.background.default,
