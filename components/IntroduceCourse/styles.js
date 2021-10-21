@@ -62,7 +62,7 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: '3rem',
   },
   containerModalCourse: {
-    width: '27%',
+    width: '340px',
     position: '-webkit-sticky',
     position: 'sticky',
     top: '5%',

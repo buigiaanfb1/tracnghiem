@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     width: '24%',
     padding: '1rem 2rem',
-    backgroundColor: theme.palette.background.course,
+    backgroundColor: theme.palette.background.pin,
     borderRadius: '8px',
     marginBottom: '1rem',
     cursor: 'pointer',
