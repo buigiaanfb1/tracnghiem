@@ -1,6 +1,5 @@
 import Account from '../../../../components/Account';
 import Layout from '../../../../components/layout/Layout';
-import { getSession } from 'next-auth/client';
 import { wrapper } from '../../../../redux/config';
 import Exam from '../../../../components/Exam';
 

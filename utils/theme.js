@@ -79,7 +79,7 @@ const themeDark = createTheme({
       course: '#282E3E',
       headerM: 'rgba(10, 25, 41, 0.72)',
       contract: '#fafafa',
-      pin: '#736CED',
+      pin: '#19183A',
       unread: 'rgba(256,256,256,0.1)',
     },
     text: {

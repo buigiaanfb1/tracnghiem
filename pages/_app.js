@@ -6,7 +6,7 @@ import { wrapper } from '../redux/config';
 import React, { useState, useEffect } from 'react';
 import ToggleTheme from '../components/ToggleTheme';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, ...pageProps }) {
   const [light, setLight] = useState(false);
   const handleChangeTheme = () => {
     setLight((prev) => !prev);
