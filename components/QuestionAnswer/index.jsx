@@ -2,6 +2,8 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import { useStyles } from './styles';
 import Tools from './Tools';
+import RadioButtonsGroup from '../RadioButtonsGroup';
+import CheckboxesGroup from '../CheckboxesGroup';
 
 const QuestionAnswer = () => {
   const classes = useStyles();
@@ -15,6 +17,10 @@ const QuestionAnswer = () => {
           Can you use if-else condition inside render() method of class
           component?
         </Typography>
+      </div>
+      <div className={classes.containerAnswer}>
+        <RadioButtonsGroup />
+        <CheckboxesGroup />
       </div>
       <Tools />
     </div>
