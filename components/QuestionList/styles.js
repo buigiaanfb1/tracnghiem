@@ -43,7 +43,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: '#C9C8FA',
+    background: theme.palette.background.unread,
     width: '40px',
     borderRadius: '8px',
     height: '40px',

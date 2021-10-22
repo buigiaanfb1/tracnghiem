@@ -41,9 +41,9 @@ const Tools = () => {
   };
   return (
     <div className={classes.containerTools}>
-      <Button>dasd</Button>
-      <Button>dasd</Button>
-      <Button onClick={() => handleChangeShallowRoute()}>dasd</Button>
+      <Button>Trở lại câu trước</Button>
+      <Button>Lưu và nộp bài</Button>
+      <Button onClick={() => handleChangeShallowRoute()}>Câu tiếp theo</Button>
     </div>
   );
 };

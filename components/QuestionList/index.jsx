@@ -3,8 +3,10 @@ import React from 'react';
 import { useStyles } from './styles';
 import RadioRead from '../RadioRead';
 import Question from './Question';
+import { useTheme } from '@material-ui/styles';
 
 const QuestionList = () => {
+  const theme = useTheme();
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -23,7 +25,7 @@ const QuestionList = () => {
             borderColor="#DEE5EF"
           />
           <RadioRead content="Done" color="green" />
-          <RadioRead content="Unread" color="yellow" />
+          <RadioRead content="Unread" color={theme.palette.background.unread} />
         </div>
         <div className={classes.questionList}>
           <Question />

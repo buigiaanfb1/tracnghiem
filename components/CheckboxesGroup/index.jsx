@@ -1,23 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import FormLabel from '@material-ui/core/FormLabel';
+import { Typography } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
-}));
-
-export default function CheckboxesGroup() {
-  const classes = useStyles();
+const CheckboxesGroup = ({ classNames }) => {
+  const classes = classNames;
   const [state, setState] = React.useState({
     gilad: true,
     jason: false,
@@ -32,19 +22,29 @@ export default function CheckboxesGroup() {
   const error = [gilad, jason, antoine].filter((v) => v).length !== 2;
 
   return (
-    <div className={classes.root}>
+    <div className={classes.containerCheckbox}>
       <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">Assign responsibility</FormLabel>
+        <Typography className={classes.title}>Chọn đáp án đúng</Typography>
         <FormGroup>
           <FormControlLabel
             control={
-              <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+              <Checkbox
+                checked={gilad}
+                onChange={handleChange}
+                name="gilad"
+                size="small"
+              />
             }
             label="Gilad Gray"
           />
           <FormControlLabel
             control={
-              <Checkbox checked={jason} onChange={handleChange} name="jason" />
+              <Checkbox
+                checked={jason}
+                onChange={handleChange}
+                name="jason"
+                size="small"
+              />
             }
             label="Jason Killian"
           />
@@ -54,13 +54,16 @@ export default function CheckboxesGroup() {
                 checked={antoine}
                 onChange={handleChange}
                 name="antoine"
+                size="small"
               />
             }
             label="Antoine Llorca"
           />
         </FormGroup>
-        <FormHelperText>Be careful</FormHelperText>
+        <FormHelperText>Hãy cẩn thận</FormHelperText>
       </FormControl>
     </div>
   );
-}
+};
+
+export default CheckboxesGroup;

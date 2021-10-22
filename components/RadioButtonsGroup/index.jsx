@@ -3,9 +3,10 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import { Typography } from '@material-ui/core';
 
-const RadioButtonsGroup = () => {
+const RadioButtonsGroup = ({ classNames }) => {
+  const classes = classNames;
   const [value, setValue] = React.useState('female');
 
   const handleChange = (event) => {
@@ -14,21 +15,27 @@ const RadioButtonsGroup = () => {
 
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Gender</FormLabel>
+      <Typography className={classes.title}>Chọn đáp án đúng</Typography>
       <RadioGroup
         aria-label="gender"
         name="gender1"
         value={value}
         onChange={handleChange}
       >
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Other" />
         <FormControlLabel
-          value="disabled"
-          disabled
-          control={<Radio />}
-          label="(Disabled option)"
+          value="female"
+          control={<Radio size="small" />}
+          label="Female"
+        />
+        <FormControlLabel
+          value="male"
+          control={<Radio size="small" />}
+          label="Male"
+        />
+        <FormControlLabel
+          value="other"
+          control={<Radio size="small" />}
+          label="Other"
         />
       </RadioGroup>
     </FormControl>

@@ -18,6 +18,7 @@ const themeLight = createTheme({
       headerM: 'rgba(255,255,255,0.72)',
       contract: '#000',
       pin: '#fafafa',
+      unread: 'rgba(0,0,0,0.05)',
     },
     text: {
       primary: '#5B587C',
@@ -29,9 +30,36 @@ const themeLight = createTheme({
       default: '#EEEDF4',
     },
   },
-  // typography: {
-  //   fontFamily: '"Montserrat", sans-serif',
-  // },
+  overrides: {
+    MuiRadio: {
+      colorSecondary: {
+        color: '#939BB4',
+        '&$checked': {
+          color: '#939BB4',
+          '&&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+        '&&:hover': {
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+    MuiCheckbox: {
+      colorSecondary: {
+        color: '#939BB4',
+        '&$checked': {
+          color: '#939BB4',
+          '&&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+        '&&:hover': {
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+  },
 });
 
 const themeDark = createTheme({
@@ -52,6 +80,7 @@ const themeDark = createTheme({
       headerM: 'rgba(10, 25, 41, 0.72)',
       contract: '#fafafa',
       pin: '#736CED',
+      unread: 'rgba(256,256,256,0.1)',
     },
     text: {
       primary: '#fafafa',
@@ -63,9 +92,35 @@ const themeDark = createTheme({
       default: 'rgba(256,256,256, 0.4)',
     },
   },
-  // typography: {
-  //   fontFamily: '"Montserrat", sans-serif',
-  // },
+  overrides: {
+    MuiRadio: {
+      colorSecondary: {
+        '&$checked': {
+          color: '#939bb4',
+          '&&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+        '&&:hover': {
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+    MuiCheckbox: {
+      colorSecondary: {
+        color: '#939BB4',
+        '&$checked': {
+          color: '#939BB4',
+          '&&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+        '&&:hover': {
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+  },
 });
 
 export { themeDark, themeLight };

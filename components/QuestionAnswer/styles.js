@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   root: {
-    position: 'relative',
-    padding: '1rem 2rem',
-    height: '100%',
+    padding: '1rem 2rem 0 2rem',
+    height: 'calc(100% - 75px)',
+    overflowY: 'auto',
   },
   header: {
     '& .MuiTypography-root': {
@@ -15,10 +15,10 @@ export const useStyles = makeStyles((theme) => ({
     padding: '1rem 0',
   },
   content: {
-    fontSize: '14px',
+    fontSize: '16px',
   },
   containerTools: {
-    height: '50px',
+    height: '75px',
     position: 'absolute',
     width: '100%',
     bottom: '0',
@@ -26,5 +26,27 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    backgroundColor: theme.palette.background.course,
+    borderBottomLeftRadius: '8px',
+    borderBottomRightRadius: '8px',
+
+    '& .MuiButton-root': {
+      backgroundColor: '#5138EE',
+      borderRadius: '24px',
+      padding: '0.5rem 1.5rem',
+      border: `2px solid #5138EE`,
+      '& span': {
+        color: '#fff',
+        textTransform: 'none',
+        fontWeight: '500',
+      },
+    },
+  },
+  title: {
+    fontWeight: '500',
+    margin: '1rem 0',
+  },
+  containerCheckbox: {
+    display: 'flex',
   },
 }));

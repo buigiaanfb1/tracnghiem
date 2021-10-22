@@ -25,6 +25,7 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: '0 .125rem .9rem 0 rgba(48, 53, 69, 0.08)',
   },
   containerQuestionAnswer: {
+    position: 'relative',
     width: 'calc(70% - 3rem)',
     backgroundColor: theme.palette.background.course,
     borderRadius: '8px',
