@@ -30,6 +30,11 @@ export const useStyles = makeStyles((theme) => ({
     borderBottomLeftRadius: '8px',
     borderBottomRightRadius: '8px',
 
+    '& .MuiSvgIcon-root': {
+      fontSize: '16px',
+      marginRight: '8px',
+    },
+
     '& .MuiButton-root': {
       backgroundColor: '#5138EE',
       borderRadius: '24px',
@@ -40,7 +45,60 @@ export const useStyles = makeStyles((theme) => ({
         textTransform: 'none',
         fontWeight: '500',
       },
+      '&:hover': {
+        opacity: '0.8',
+      },
     },
+  },
+  saveButton: {
+    '&.MuiButton-root': {
+      backgroundColor: 'rgba(0, 255, 143, 0.8)',
+      border: `2px solid rgba(0, 255, 143, 1)`,
+      '& span': {
+        color: 'black',
+        textTransform: 'none',
+        fontWeight: '500',
+      },
+      '&:hover': {
+        opacity: '0.8',
+      },
+    },
+  },
+  prevButton: {
+    '&.MuiButton-root': {
+      backgroundColor: theme.palette.background.unread,
+      border: `2px solid transparent`,
+      '& span': {
+        color: theme.palette.text.primary,
+        textTransform: 'none',
+        fontWeight: '500',
+      },
+      '&:hover': {
+        opacity: '0.8',
+      },
+    },
+  },
+  nextButton: {
+    '&.MuiButton-root': {
+      backgroundColor: theme.palette.background.unread,
+      border: `2px solid transparent`,
+      '& span': {
+        color: theme.palette.text.primary,
+        textTransform: 'none',
+        fontWeight: '500',
+      },
+      '& .MuiSvgIcon-root': {
+        fontSize: '16px',
+        marginLeft: '8px',
+        marginRight: '0',
+      },
+    },
+  },
+  containerAnswer: {
+    margin: '1rem 0',
+    padding: '0.25rem 0 1rem 0',
+    borderTop: `1px solid ${theme.palette.border.default}`,
+    borderBottom: `1px solid ${theme.palette.border.default}`,
   },
   title: {
     fontWeight: '500',

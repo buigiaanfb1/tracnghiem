@@ -2,6 +2,9 @@ import { Button } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useStyles } from '../styles';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import SaveIcon from '@material-ui/icons/Save';
 const Tools = () => {
   const classes = useStyles();
   const router = useRouter();
@@ -24,7 +27,7 @@ const Tools = () => {
     );
   }, []);
 
-  const handleChangeShallowRoute = () => {
+  const handleChangeNextShallowRoute = () => {
     router.push(
       {
         query: {
@@ -39,11 +42,42 @@ const Tools = () => {
       }
     );
   };
+
+  const handleChangePrevShallowRoute = () => {
+    router.push(
+      {
+        query: {
+          question: parseInt(router.query.question) - 1 || 1,
+          attempId: router.query.attempId,
+          id: router.query.id,
+        },
+      },
+      undefined,
+      {
+        shallow: true,
+      }
+    );
+  };
   return (
     <div className={classes.containerTools}>
-      <Button>Trở lại câu trước</Button>
-      <Button>Lưu và nộp bài</Button>
-      <Button onClick={() => handleChangeShallowRoute()}>Câu tiếp theo</Button>
+      <Button
+        className={classes.prevButton}
+        onClick={() => handleChangePrevShallowRoute()}
+      >
+        <ArrowBackIosIcon />
+        Trở lại câu trước
+      </Button>
+      <Button className={classes.saveButton}>
+        <SaveIcon />
+        Lưu và nộp bài
+      </Button>
+      <Button
+        onClick={() => handleChangeNextShallowRoute()}
+        className={classes.nextButton}
+      >
+        Câu tiếp theo
+        <ArrowForwardIosIcon />
+      </Button>
     </div>
   );
 };

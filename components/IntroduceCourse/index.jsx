@@ -1,9 +1,12 @@
 import { Button, Typography } from '@material-ui/core';
 import React from 'react';
 import { useStyles } from './styles';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const IntroduceCourse = () => {
   const classes = useStyles();
+  const router = useRouter();
   return (
     <>
       <div className={`${classes.root} ${classes.bodyScroll}`}>
@@ -74,9 +77,20 @@ const IntroduceCourse = () => {
             className={classes.cover}
           />
           <div className={classes.containerDescription}>
-            <Button className={classes.containerButton}>
-              <Typography>Thi ngay</Typography>
-            </Button>
+            <Link
+              href={{
+                pathname: '[id]/exams/[attempId]',
+                query: {
+                  id: router.query.id,
+                  attempId: router.query.id,
+                },
+              }}
+              passHref
+            >
+              <Button className={classes.containerButton}>
+                <Typography>Thi ngay</Typography>
+              </Button>
+            </Link>
             <Typography className={classes.include}>
               This course include:
             </Typography>

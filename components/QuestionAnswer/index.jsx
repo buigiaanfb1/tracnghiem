@@ -21,9 +21,9 @@ const QuestionAnswer = () => {
         </div>
         <div className={classes.containerAnswer}>
           <RadioButtonsGroup classNames={classes} />
-          <CheckboxesGroup classNames={classes} />
+          {/* <CheckboxesGroup classNames={classes} />
           <RadioButtonsGroup classNames={classes} />
-          <CheckboxesGroup classNames={classes} />
+          <CheckboxesGroup classNames={classes} /> */}
         </div>
       </div>
       <Tools />
