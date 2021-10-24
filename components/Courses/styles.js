@@ -14,10 +14,12 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   categoryType: {
-    fontSize: '34px',
-    fontWeight: '700',
-    margin: '1rem 0',
-    textAlign: 'center',
+    '&.MuiTypography-root': {
+      fontSize: '34px',
+      fontWeight: '700',
+      margin: '1rem 0',
+      textAlign: 'center',
+    },
   },
   containerCourses: {
     padding: '0 0.25rem',
