@@ -18,7 +18,7 @@ const themeLight = createTheme({
       headerM: 'rgba(255,255,255,0.72)',
       contract: '#000',
       pin: '#fafafa',
-      unread: 'rgba(0,0,0,0.05)',
+      unread: '#eef3f7',
     },
     text: {
       primary: '#5B587C',
@@ -28,7 +28,7 @@ const themeLight = createTheme({
     },
     border: {
       default: '#EEEDF4',
-      question: '#000',
+      question: '#8785ff',
     },
   },
   overrides: {
@@ -45,9 +45,6 @@ const themeLight = createTheme({
         '&&:hover': {
           backgroundColor: 'transparent',
         },
-      },
-      '& .MuiSvgIcon-root': {
-        transition: 'none !important',
       },
     },
     MuiCheckbox: {
@@ -95,7 +92,7 @@ const themeDark = createTheme({
     },
     border: {
       default: 'rgba(256,256,256, 0.4)',
-      question: '#fff',
+      question: '#8785ff',
     },
   },
   overrides: {
@@ -110,9 +107,6 @@ const themeDark = createTheme({
         '&&:hover': {
           backgroundColor: 'transparent',
         },
-      },
-      '& .MuiSvgIcon-root': {
-        transition: 'none !important',
       },
     },
     MuiCheckbox: {

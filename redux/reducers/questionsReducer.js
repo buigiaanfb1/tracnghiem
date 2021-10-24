@@ -2,8 +2,8 @@ import {
   GET_QUESTION_LIST_FAIL,
   GET_QUESTION_LIST_REQUEST,
   GET_QUESTION_LIST_SUCCESS,
-  GET_QUESTION_DETAIL,
-  CHOSEN_QUESTION,
+  CHOSEN_QUESTION_CHECKBOXES,
+  CHOSEN_QUESTION_RADIO,
 } from '../constants/questionConstants';
 // Question List reducer
 export const questionListReducer = (
@@ -26,13 +26,31 @@ export const questionListReducer = (
         loading: false,
         success: false,
       };
-    case CHOSEN_QUESTION:
+    case CHOSEN_QUESTION_RADIO: {
       let { questionId, answerId } = payload;
       let index = state.questionList.findIndex((question) => {
         return question.id === questionId;
       });
-      state.questionList[index].selected = answerId.toString();
+      if (answerId) {
+        state.questionList[index].selected = answerId.toString();
+      } else {
+        delete state.questionList[index].selected;
+      }
       return { ...state };
+    }
+
+    case CHOSEN_QUESTION_CHECKBOXES: {
+      let { questionId, answerId } = payload;
+      let index = state.questionList.findIndex((question) => {
+        return question.id === questionId;
+      });
+      if (answerId) {
+        state.questionList[index].selected = answerId;
+      } else {
+        delete state.questionList[index].selected;
+      }
+      return { ...state };
+    }
     default:
       return state;
   }

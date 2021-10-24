@@ -27,7 +27,7 @@ const Exam = () => {
     }
   }, []);
   const { questionList } = useSelector((state) => state.questionList);
-  if (questionList) {
+  if (questionList && router.query.question) {
     return (
       <div className={`${classes.root} ${classes.bodyScroll}`}>
         <div className={classes.containerQuestionList}>

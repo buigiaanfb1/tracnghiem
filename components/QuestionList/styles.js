@@ -68,4 +68,19 @@ export const useStyles = makeStyles((theme) => ({
       // color: theme.palette.text.black,
     },
   },
+  questionSelected: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: theme.palette.border.question,
+    background: '#c9c8fa',
+    width: '40px',
+    borderRadius: '8px',
+    height: '40px',
+    cursor: 'pointer',
+    '& .MuiTypography-root': {
+      fontWeight: '600',
+      // color: theme.palette.text.black,
+    },
+  },
 }));

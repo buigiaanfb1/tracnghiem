@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -7,12 +7,11 @@ import { Typography } from '@material-ui/core';
 
 const RadioButtonsGroup = ({ classNames, question, handleChosenQuestion }) => {
   const classes = classNames;
-  console.log(question.selected);
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     setValue(question.selected || '');
-  }, [question]);
+  }, [question?.selected]);
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -38,8 +37,8 @@ const RadioButtonsGroup = ({ classNames, question, handleChosenQuestion }) => {
     <FormControl component="fieldset">
       <Typography className={classes.title}>Chọn đáp án đúng</Typography>
       <RadioGroup
-        aria-label="gender"
-        name="gender1"
+        aria-label="single_choice"
+        name="single_choice"
         value={value}
         onChange={handleChange}
       >

@@ -35,9 +35,9 @@ const QuestionList = ({ questionList }) => {
             router.query.question == index + 1
               ? classes.questionActive
               : classes.question
-          }`}
+          } ${question.selected && classes.questionSelected}`}
         >
-          <Typography>{index + 1}</Typography>
+          <Typography style={{ userSelect: 'none' }}>{index + 1}</Typography>
         </div>
       </div>
     );

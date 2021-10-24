@@ -26,7 +26,7 @@ const QuestionList = ({ questionList }) => {
             border={true}
             borderColor="#DEE5EF"
           />
-          <RadioRead content="Done" color="green" />
+          <RadioRead content="Done" color="#C9C8FA" />
           <RadioRead content="Unread" color={theme.palette.background.unread} />
         </div>
         <div className={classes.questionList}>

@@ -115,4 +115,15 @@ export const useStyles = makeStyles((theme) => ({
   containerCheckbox: {
     display: 'flex',
   },
+  removeAnswer: {
+    '&.MuiTypography-root': {
+      fontWeight: '500',
+      fontSize: 14,
+      cursor: 'pointer',
+      opacity: '0.6',
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
+  },
 }));
