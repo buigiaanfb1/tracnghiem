@@ -79,10 +79,10 @@ const IntroduceCourse = () => {
           <div className={classes.containerDescription}>
             <Link
               href={{
-                pathname: '[id]/exams/[attempId]',
+                pathname: '[id]/exams/[attemptId]',
                 query: {
                   id: router.query.id,
-                  attempId: router.query.id,
+                  attemptId: router.query.id,
                 },
               }}
               passHref

@@ -31,6 +31,8 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import HistoryIcon from '@material-ui/icons/History';
+import ClassOutlinedIcon from '@material-ui/icons/ClassOutlined';
+import ClassIcon from '@material-ui/icons/Class';
 
 export const mainNavigate = [
   {
@@ -41,24 +43,31 @@ export const mainNavigate = [
     keyName: '1',
   },
   {
+    IconBold: ClassIcon,
+    IconOutlined: ClassOutlinedIcon,
+    abstractName: 'courses',
+    navLinkName: 'courses',
+    keyName: '2',
+  },
+  {
     IconBold: HistoryIcon,
     IconOutlined: HistoryIcon,
     abstractName: 'history',
     navLinkName: 'history',
-    keyName: '2',
+    keyName: '3',
   },
   {
     IconBold: AccountCircleIcon,
     IconOutlined: AccountCircleOutlinedIcon,
     abstractName: 'profile',
     navLinkName: 'profile/personal-information',
-    keyName: '3',
+    keyName: '4',
   },
   {
     IconBold: SettingsIcon,
     IconOutlined: SettingsOutlinedIcon,
     abstractName: 'settings',
     navLinkName: 'settings',
-    keyName: '4',
+    keyName: '5',
   },
 ];

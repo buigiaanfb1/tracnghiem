@@ -1,0 +1,798 @@
+[
+  {
+      "id": 2129,
+      "type": "single_choice",
+      "question": "The `componentDidMount()` lifecycle method is invoked  ___ .",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9667,
+              "label": "immediately after a component is mounted"
+          },
+          {
+              "id": 9668,
+              "label": "immediately after updating occurs"
+          },
+          {
+              "id": 9669,
+              "label": "immediately before a component is unmounted and destroyed"
+          },
+          {
+              "id": 9670,
+              "label": "immediately after state change"
+          }
+      ]
+  },
+  {
+      "id": 2119,
+      "type": "single_choice",
+      "question": "What is state in ReactJS?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9627,
+              "label": "An internal object managed within the component"
+          },
+          {
+              "id": 9628,
+              "label": "An internal Set object managed within the component"
+          },
+          {
+              "id": 9629,
+              "label": "An internal array managed within the component"
+          }
+      ]
+  },
+  {
+      "id": 2092,
+      "type": "single_choice",
+      "question": "Which is the correct syntax to display a variable call `name` in JSX?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9526,
+              "label": "`<p>{name}</p>`"
+          },
+          {
+              "id": 9527,
+              "label": "`<p>{{ name }}</p>`"
+          },
+          {
+              "id": 9528,
+              "label": "`<p>${name}</p>`"
+          },
+          {
+              "id": 9529,
+              "label": "`<p>(name)</p>`"
+          }
+      ]
+  },
+  {
+      "id": 24961,
+      "type": "single_choice",
+      "question": "Every default hooks support by React start with the `___` keyword?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102043,
+              "label": "hook"
+          },
+          {
+              "id": 102044,
+              "label": "use"
+          },
+          {
+              "id": 102045,
+              "label": "import"
+          }
+      ]
+  },
+  {
+      "id": 24983,
+      "type": "single_choice",
+      "question": "Is it safe to call React hook inside loops, conditions or nested function?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102107,
+              "label": "Yes"
+          },
+          {
+              "id": 102108,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 4671,
+      "type": "multi_choice",
+      "question": "Select all lifecycle hook available in ReactJS?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 19371,
+              "label": "constructor(props)"
+          },
+          {
+              "id": 19372,
+              "label": "componentDidMount()"
+          },
+          {
+              "id": 19373,
+              "label": "componentWillUnmount()"
+          },
+          {
+              "id": 19374,
+              "label": "componentDidUpdate()"
+          },
+          {
+              "id": 19375,
+              "label": "componentWillMount()"
+          },
+          {
+              "id": 19376,
+              "label": "shouldComponentUpdate()"
+          }
+      ]
+  },
+  {
+      "id": 24991,
+      "type": "single_choice",
+      "question": "Which is the correct syntax for using `useReducer()`?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102128,
+              "label": "```js\nconst App = () => {\n  const state = useReducer();\n}\n```"
+          },
+          {
+              "id": 102129,
+              "label": "```js\nconst App = () => {\n  const [state, dispatch] = useReducer(initialState);\n}\n```"
+          },
+          {
+              "id": 102130,
+              "label": "```js\nconst App = () => {\n  const [state, dispatch] = useReducer(reducer, initialState);\n}\n```"
+          }
+      ]
+  },
+  {
+      "id": 24990,
+      "type": "single_choice",
+      "question": "Which React hook is an alternative to `useState()` hook?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102124,
+              "label": "useMemo()"
+          },
+          {
+              "id": 102125,
+              "label": "useData()"
+          },
+          {
+              "id": 102126,
+              "label": "useReducer()"
+          },
+          {
+              "id": 102127,
+              "label": "useCallback()"
+          }
+      ]
+  },
+  {
+      "id": 2193,
+      "type": "multi_choice",
+      "question": "Which are correct statements about the `key` attribute in `ReactJS`?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9877,
+              "label": "Keys help React identify which items have changed, are added, or are removed."
+          },
+          {
+              "id": 9878,
+              "label": "Keys should be given to the elements inside the array to give the elements a stable identity."
+          },
+          {
+              "id": 9879,
+              "label": "Key should be unique between its siblings"
+          }
+      ]
+  },
+  {
+      "id": 2098,
+      "type": "single_choice",
+      "question": "What is the result of the following code?\n```jsx\nrender() {\n    let services = [\"Viblo\", \"Viblo Learning\", \"Viblo Code\"]\n    return (\n        <div>\n            {services.map(name => <p>{name}</p>)}\n        </div>\n    )\n}\n```",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9550,
+              "label": "Displays the list of services"
+          },
+          {
+              "id": 9551,
+              "label": "Error. Cannot use direct JavaScript code in JSX"
+          },
+          {
+              "id": 9552,
+              "label": "Displays nothing"
+          },
+          {
+              "id": 9553,
+              "label": "Error. Should be replaced with a for..loop for correct output"
+          }
+      ]
+  },
+  {
+      "id": 24938,
+      "type": "single_choice",
+      "question": "Can you use `if-else` condition inside `render()` method of class component?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101987,
+              "label": "Yes"
+          },
+          {
+              "id": 101988,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 24985,
+      "type": "single_choice",
+      "question": "Is a custom hook in React must start with the `use` keyword? (Example: `useCustomHook()`)",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102111,
+              "label": "Yes"
+          },
+          {
+              "id": 102112,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 24933,
+      "type": "single_choice",
+      "question": "What is the result of `handleShowValue()` method in the code below?\n```js\nclass App extends React.Component {\n    state = {\n        value: 'Hello World'\n    }\n    handleShowValue() {\n        console.log(this.state)\n   }\n   render() {\n    return <button onClick={this.handleShowValue}>Click</button>;\n  }\n}\n```",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101972,
+              "label": "{ value: 'Hello World' }"
+          },
+          {
+              "id": 101973,
+              "label": "undefined"
+          },
+          {
+              "id": 101974,
+              "label": "Error"
+          }
+      ]
+  },
+  {
+      "id": 2565,
+      "type": "single_choice",
+      "question": "Is it true that `refs` are created using `React.createRef()` and attached to React elements via the `ref` attribute?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 11292,
+              "label": "True"
+          },
+          {
+              "id": 11293,
+              "label": "False"
+          }
+      ]
+  },
+  {
+      "id": 24943,
+      "type": "single_choice",
+      "question": "Can we make a functional component becomes error boundary in default React library ( <= vervion 17)?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102001,
+              "label": "Yes"
+          },
+          {
+              "id": 102002,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 24936,
+      "type": "single_choice",
+      "question": "Do you need to manually bind `this` keyword to `handleClick()` method in `constructor()` to make the code below work?\n```js\nclass App extends React.Component {\n    handleClick = () => {\n        console.log(this.state)\n    }\n}\n```",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101981,
+              "label": "Yes"
+          },
+          {
+              "id": 101982,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 24960,
+      "type": "single_choice",
+      "question": "Is React hooks work in class component?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102041,
+              "label": "Yes"
+          },
+          {
+              "id": 102042,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 2097,
+      "type": "single_choice",
+      "question": "What happen if you call `setState()` method inside `render()` method?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9546,
+              "label": "Reference error"
+          },
+          {
+              "id": 9547,
+              "label": "Duplicate key error"
+          },
+          {
+              "id": 9548,
+              "label": "Stack overflow error"
+          },
+          {
+              "id": 9549,
+              "label": "Nothing happens"
+          }
+      ]
+  },
+  {
+      "id": 2422,
+      "type": "multi_choice",
+      "question": "Which are legacy lifecycle methods on React from version 16?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 10741,
+              "label": "componentWillMount()"
+          },
+          {
+              "id": 10742,
+              "label": "componentWillReceiveProps()"
+          },
+          {
+              "id": 10743,
+              "label": "componentDidMount()"
+          },
+          {
+              "id": 10744,
+              "label": "componentWillUpdate()"
+          },
+          {
+              "id": 10745,
+              "label": "componentDidUpdate()"
+          }
+      ]
+  },
+  {
+      "id": 24965,
+      "type": "single_choice",
+      "question": "What is the second value in the array that return from `useState` hook?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102055,
+              "label": "The current state value"
+          },
+          {
+              "id": 102056,
+              "label": "The function to update the state"
+          },
+          {
+              "id": 102057,
+              "label": "The initialize value of state"
+          }
+      ]
+  },
+  {
+      "id": 24951,
+      "type": "single_choice",
+      "question": "What is `Forwarding Refs` in React?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102020,
+              "label": "A technique for passing a ref of child component to parent component"
+          },
+          {
+              "id": 102021,
+              "label": "A technique for automatically passing a ref through a component to one of its children"
+          },
+          {
+              "id": 102022,
+              "label": "A technique for automatically create multiple and dynamic ref for a class component"
+          }
+      ]
+  },
+  {
+      "id": 2120,
+      "type": "single_choice",
+      "question": "Is it safe to change props value directly inside a component?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9632,
+              "label": "Yes"
+          },
+          {
+              "id": 9633,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 24967,
+      "type": "single_choice",
+      "question": "Which React hook serves the same purpose as `componentDidMount()`, `componentDidUpdate()`, and `componentWillUnmount()` in class component?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102060,
+              "label": "useState()"
+          },
+          {
+              "id": 102061,
+              "label": "useLifecycle()"
+          },
+          {
+              "id": 102062,
+              "label": "useEffect()"
+          },
+          {
+              "id": 102063,
+              "label": "useCallback()"
+          }
+      ]
+  },
+  {
+      "id": 2426,
+      "type": "multi_choice",
+      "question": "Which are correct syntaxes for using `Fragments` in ReacJS?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 10758,
+              "label": "```jsx\nreturn (\n    </>\n        <p>First line</p>\n        <p>Second line</p>\n    </>\n);\n```"
+          },
+          {
+              "id": 10759,
+              "label": "```jsx\nreturn (\n    <>\n        <p>First line</p>\n        <p>Second line</p>\n    </>\n);\n```"
+          },
+          {
+              "id": 10760,
+              "label": "```jsx\nreturn (\n    <Fragments>\n        <p>First line</p>\n        <p>Second line</p>\n    </Fragments>\n);\n```"
+          },
+          {
+              "id": 10761,
+              "label": "```jsx\nreturn (\n    <Fragment>\n        <p>First line</p>\n        <p>Second line</p>\n    </Fragment>\n);\n```"
+          }
+      ]
+  },
+  {
+      "id": 24941,
+      "type": "single_choice",
+      "question": "Which React default component used to display some loading indicator in case components in the tree are lazy loaded?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101993,
+              "label": "`<React.Server>`"
+          },
+          {
+              "id": 101994,
+              "label": "`<React.Wait>`"
+          },
+          {
+              "id": 101995,
+              "label": "`<React.PureComponent>`"
+          },
+          {
+              "id": 101996,
+              "label": "`<React.Suspense>`"
+          }
+      ]
+  },
+  {
+      "id": 24919,
+      "type": "single_choice",
+      "question": "What is the result of the following code?\n```js\nconst ResultBox = ({ counter }) => {\n    return (\n        <p>Result: {counter}</p>\n    )\n}\n\nclass App extends React.Component {\n    state = {\n        counter: 0\n    }\n    componentDidMount() {\n        this.setState({ counter: 1 })\n    }\n    render() {\n        return (\n            <ResultBox counter={counter} />\n        )\n    }\n}\nReactDOM.render(<App />, document.getElementById('app'));\n```",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101937,
+              "label": "Result: 0"
+          },
+          {
+              "id": 101938,
+              "label": "Result: 1"
+          },
+          {
+              "id": 101939,
+              "label": "Error"
+          }
+      ]
+  },
+  {
+      "id": 24950,
+      "type": "fill_the_blank",
+      "question": "`___` is the only attribute that can passed to `React.Fragment` component in React version 17 and earlier.",
+      "explanation": null,
+      "blank": [
+          {
+              "id": 1032,
+              "value": ""
+          }
+      ]
+  },
+  {
+      "id": 24982,
+      "type": "single_choice",
+      "question": "What happen if the dependency array of `useEffect()` hook is an empty array?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102104,
+              "label": "The effect and clean up function inside `useEffect()` hook will run after every render include the first initial render"
+          },
+          {
+              "id": 102105,
+              "label": "The effect and clean up function inside `useEffect()` hook will run after every render except the first initial render"
+          },
+          {
+              "id": 102106,
+              "label": "The effect and clean up function inside `useEffect()` hook will only run one time on mount and unmount"
+          }
+      ]
+  },
+  {
+      "id": 2373,
+      "type": "single_choice",
+      "question": "Which statement is similar to `top-down` data flow?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 10562,
+              "label": "two way data flow"
+          },
+          {
+              "id": 10563,
+              "label": "one way data flow"
+          },
+          {
+              "id": 10564,
+              "label": "Both are incorrect"
+          }
+      ]
+  },
+  {
+      "id": 24974,
+      "type": "single_choice",
+      "question": "Is `return` statement requires at the end of `useEffect()` hook?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102080,
+              "label": "Yes"
+          },
+          {
+              "id": 102081,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 24815,
+      "type": "single_choice",
+      "question": "When ReactJS was introduced?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101557,
+              "label": "2012"
+          },
+          {
+              "id": 101558,
+              "label": "2013"
+          },
+          {
+              "id": 101559,
+              "label": "2014"
+          },
+          {
+              "id": 101560,
+              "label": "1015"
+          }
+      ]
+  },
+  {
+      "id": 24976,
+      "type": "single_choice",
+      "question": "Which is the correct syntax when using `return` statement in `useEffect()` hook?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 102085,
+              "label": "```js\nuseEffect() => {\n  // Perform side effect\n\n  return () => {\n    // Clean up\n  }\n}\n```"
+          },
+          {
+              "id": 102086,
+              "label": "```js\nuseEffect(() => {\n  // Perform side effect\n\n  return (\n    // Clean up\n  )\n})\n```"
+          },
+          {
+              "id": 102087,
+              "label": "```js\nuseEffect(() => {\n  // Perform side effect\n\n  return () => {\n    // Clean up\n  }\n}\n```"
+          }
+      ]
+  },
+  {
+      "id": 2413,
+      "type": "multi_choice",
+      "question": "Which are correct parameters of `shouldComponentUpdate()` lifecycle method?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 10710,
+              "label": "prevProps"
+          },
+          {
+              "id": 10711,
+              "label": "nextProps"
+          },
+          {
+              "id": 10712,
+              "label": "prevState"
+          },
+          {
+              "id": 10713,
+              "label": "nextState"
+          }
+      ]
+  },
+  {
+      "id": 2089,
+      "type": "single_choice",
+      "question": "ReactJS is a JavaScript library used to bulid ___ .",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9514,
+              "label": "database connectivity"
+          },
+          {
+              "id": 9515,
+              "label": "API interface"
+          },
+          {
+              "id": 9516,
+              "label": "user interface"
+          }
+      ]
+  },
+  {
+      "id": 7396,
+      "type": "single_choice",
+      "question": "Which function used to define a component that load dynamically?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 29565,
+              "label": "React.require"
+          },
+          {
+              "id": 29566,
+              "label": "React.dynamic"
+          },
+          {
+              "id": 29567,
+              "label": "React.lazy"
+          },
+          {
+              "id": 29568,
+              "label": "React.split"
+          }
+      ]
+  },
+  {
+      "id": 2253,
+      "type": "single_choice",
+      "question": "Which statement is correct about data flow in React?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 10102,
+              "label": "React use bidirectional data flow"
+          },
+          {
+              "id": 10103,
+              "label": "React use unidirectional data flow"
+          },
+          {
+              "id": 10104,
+              "label": "React use two way data flow"
+          }
+      ]
+  },
+  {
+      "id": 24923,
+      "type": "single_choice",
+      "question": "Is `shouldComponentUpdate()` lifecycle method work the same by default in both  `React.PureComponent` and `React.Component`?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101950,
+              "label": "Yes"
+          },
+          {
+              "id": 101951,
+              "label": "No"
+          }
+      ]
+  },
+  {
+      "id": 2090,
+      "type": "single_choice",
+      "question": "What is the purpose of `componentWillUnmount()` lifecycle hook?",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 9518,
+              "label": "Keep track of component's state change"
+          },
+          {
+              "id": 9519,
+              "label": "Perform a shallow comparison of props and state, and reduces the chance that you’ll skip a necessary update"
+          },
+          {
+              "id": 9520,
+              "label": "Perform any necessary cleanup before a component is unmounted and destroyed"
+          },
+          {
+              "id": 9521,
+              "label": "None of the above"
+          }
+      ]
+  },
+  {
+      "id": 24929,
+      "type": "single_choice",
+      "question": "Is 2 code block below work the same when adding event handle to an element?\n```html\n<button onClick={this.increase}>Increase</button>\n```\nand\n```html\n<button onClick={this.increase()}>Increase</button>\n```",
+      "explanation": null,
+      "choices": [
+          {
+              "id": 101962,
+              "label": "Yes"
+          },
+          {
+              "id": 101963,
+              "label": "No"
+          }
+      ]
+  }
+]

@@ -12,6 +12,7 @@ const NavigationBar = () => {
   const classes = useStyles();
   const router = useRouter();
   const [session, loading] = useSession();
+  console.log(session);
 
   const handleRenderNavigate = () => {
     return mainNavigate.map((link) => {

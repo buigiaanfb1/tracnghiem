@@ -99,6 +99,14 @@ export const useStyles = makeStyles((theme) => ({
     padding: '0.25rem 0 1rem 0',
     borderTop: `1px solid ${theme.palette.border.default}`,
     borderBottom: `1px solid ${theme.palette.border.default}`,
+
+    '& .Mui-checked': {
+      position: 'relative',
+    },
+
+    '& .MuiSvgIcon-root + .MuiSvgIcon-root': {
+      transition: 'none !important',
+    },
   },
   title: {
     fontWeight: '500',

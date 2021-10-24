@@ -5,7 +5,7 @@ import RadioRead from '../RadioRead';
 import Question from './Question';
 import { useTheme } from '@material-ui/styles';
 
-const QuestionList = () => {
+const QuestionList = ({ questionList }) => {
   const theme = useTheme();
   const classes = useStyles();
   return (
@@ -15,7 +15,9 @@ const QuestionList = () => {
           <Typography variant="h6" className={classes.titleHeader}>
             Danh sách câu hỏi
           </Typography>
-          <Typography className={classes.totalQuestion}>35 câu hỏi</Typography>
+          <Typography className={classes.totalQuestion}>
+            {questionList.length} câu hỏi
+          </Typography>
         </div>
         <div className={classes.containerGuide}>
           <RadioRead
@@ -28,7 +30,7 @@ const QuestionList = () => {
           <RadioRead content="Unread" color={theme.palette.background.unread} />
         </div>
         <div className={classes.questionList}>
-          <Question />
+          <Question questionList={questionList} />
         </div>
       </div>
     </div>

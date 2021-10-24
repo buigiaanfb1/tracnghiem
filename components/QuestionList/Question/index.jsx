@@ -1,21 +1,47 @@
 import { Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import { useStyles } from '../styles';
+import { useRouter } from 'next/router';
 
-const QuestionList = () => {
+const QuestionList = ({ questionList }) => {
   const classes = useStyles();
+  const router = useRouter();
 
-  return Array(40)
-    .fill(40)
-    .map((question, index) => {
-      return (
-        <div className={classes.containerQuestion} key={index}>
-          <div className={classes.question}>
-            <Typography>{index}</Typography>
-          </div>
+  const handleChangeQuestion = (questionId) => {
+    router.push(
+      {
+        query: {
+          question: questionId,
+          attemptId: router.query.attemptId,
+          id: router.query.id,
+        },
+      },
+      undefined,
+      {
+        shallow: true,
+      }
+    );
+  };
+
+  return questionList.map((question, index) => {
+    return (
+      <div
+        className={classes.containerQuestion}
+        key={question.id}
+        onClick={() => handleChangeQuestion(index + 1)}
+      >
+        <div
+          className={`${
+            router.query.question == index + 1
+              ? classes.questionActive
+              : classes.question
+          }`}
+        >
+          <Typography>{index + 1}</Typography>
         </div>
-      );
-    });
+      </div>
+    );
+  });
 };
 
 export default QuestionList;

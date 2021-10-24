@@ -13,7 +13,6 @@ function MyApp({ Component, ...pageProps }) {
   };
 
   useEffect(() => {
-    console.log(light);
     let lStorage = JSON.parse(localStorage.getItem('ey10_app_user_settings'));
     if (lStorage) {
       setLight(lStorage.theme);

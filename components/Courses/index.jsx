@@ -24,7 +24,9 @@ const Courses = () => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-        <Typography className={classes.categoryType}>Popular</Typography>
+        <Typography variant="h2" className={classes.categoryType}>
+          Popular Courses
+        </Typography>
         <div className={classes.containerCourses}>{handleRenderCourse()}</div>
       </div>
     </div>

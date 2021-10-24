@@ -11,7 +11,8 @@ const Dashboard = () => {
   const classes = useStyles();
   return (
     <div className={`${classes.root} ${classes.bodyScroll}`}>
-      <div className={classes.containerHeader}>
+      <CategoryPins />
+      {/* <div className={classes.containerHeader}>
         <SearchBar />
         <div className={classes.containerButtonLoginSignUp}>
           <Link href="/login" passHref>
@@ -25,11 +26,10 @@ const Dashboard = () => {
             </Button>
           </Link>
         </div>
-        {/* <Button className={classes.buttonCreate}>
+        <Button className={classes.buttonCreate}>
           <Typography>Create Quiz</Typography> <AddIcon />
-        </Button> */}
-      </div>
-      <CategoryPins />
+        </Button>
+      </div> */}
       <div className={classes.containerCourses}>
         <Courses />
       </div>

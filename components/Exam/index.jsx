@@ -1,20 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStyles } from './styles';
 import QuestionList from '../QuestionList';
 import QuestionAnswer from '../QuestionAnswer';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
-const Dashboard = () => {
+const Exam = () => {
   const classes = useStyles();
-  return (
-    <div className={`${classes.root} ${classes.bodyScroll}`}>
-      <div className={classes.containerQuestionList}>
-        <QuestionList />
+  const router = useRouter();
+  useEffect(() => {
+    // Always do navigations after the first render
+    if (router.query.question == null) {
+      router.push(
+        {
+          query: {
+            question: 1,
+            attemptId: router.query.id,
+            id: router.query.id,
+          },
+        },
+        undefined,
+        {
+          shallow: true,
+        }
+      );
+    }
+  }, []);
+  const { questionList } = useSelector((state) => state.questionList);
+  console.log(questionList);
+  if (questionList) {
+    return (
+      <div className={`${classes.root} ${classes.bodyScroll}`}>
+        <div className={classes.containerQuestionList}>
+          <QuestionList questionList={questionList} />
+        </div>
+        <div className={classes.containerQuestionAnswer}>
+          <QuestionAnswer questionList={questionList} />
+        </div>
       </div>
-      <div className={classes.containerQuestionAnswer}>
-        <QuestionAnswer />
-      </div>
-    </div>
-  );
+    );
+  } else {
+    return <></>;
+  }
 };
 
-export default Dashboard;
+export default Exam;

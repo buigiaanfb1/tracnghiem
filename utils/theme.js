@@ -28,6 +28,7 @@ const themeLight = createTheme({
     },
     border: {
       default: '#EEEDF4',
+      question: '#000',
     },
   },
   overrides: {
@@ -36,6 +37,7 @@ const themeLight = createTheme({
         color: '#939BB4',
         '&$checked': {
           color: '#939BB4',
+          transition: 'none',
           '&&:hover': {
             backgroundColor: 'transparent',
           },
@@ -43,6 +45,9 @@ const themeLight = createTheme({
         '&&:hover': {
           backgroundColor: 'transparent',
         },
+      },
+      '& .MuiSvgIcon-root': {
+        transition: 'none !important',
       },
     },
     MuiCheckbox: {
@@ -90,6 +95,7 @@ const themeDark = createTheme({
     },
     border: {
       default: 'rgba(256,256,256, 0.4)',
+      question: '#fff',
     },
   },
   overrides: {
@@ -104,6 +110,9 @@ const themeDark = createTheme({
         '&&:hover': {
           backgroundColor: 'transparent',
         },
+      },
+      '& .MuiSvgIcon-root': {
+        transition: 'none !important',
       },
     },
     MuiCheckbox: {

@@ -8,47 +8,24 @@ import SaveIcon from '@material-ui/icons/Save';
 const Tools = () => {
   const classes = useStyles();
   const router = useRouter();
-  console.log(router.query);
 
-  useEffect(() => {
-    // Always do navigations after the first render
+  /** 
+    Change route (url ?question=1,2,3,....) without fetch api
+    @direction true, false
+    True next, false prev
+  */
+  const handleChangeShallowRoute = (direction) => {
     router.push(
       {
         query: {
-          question: 1,
-          attempId: router.query.attempId,
-          id: router.query.id,
-        },
-      },
-      undefined,
-      {
-        shallow: true,
-      }
-    );
-  }, []);
-
-  const handleChangeNextShallowRoute = () => {
-    router.push(
-      {
-        query: {
-          question: parseInt(router.query.question) + 1 || 1,
-          attempId: router.query.attempId,
-          id: router.query.id,
-        },
-      },
-      undefined,
-      {
-        shallow: true,
-      }
-    );
-  };
-
-  const handleChangePrevShallowRoute = () => {
-    router.push(
-      {
-        query: {
-          question: parseInt(router.query.question) - 1 || 1,
-          attempId: router.query.attempId,
+          question:
+            (parseInt(router.query.question) >= 1
+              ? parseInt(router.query.question) + (direction ? 1 || 1 : -1 || 1)
+              : 1) == 0
+              ? 1
+              : parseInt(router.query.question) +
+                (direction ? 1 || 1 : -1 || 1),
+          attemptId: router.query.attemptId,
           id: router.query.id,
         },
       },
@@ -58,11 +35,12 @@ const Tools = () => {
       }
     );
   };
+
   return (
     <div className={classes.containerTools}>
       <Button
         className={classes.prevButton}
-        onClick={() => handleChangePrevShallowRoute()}
+        onClick={() => handleChangeShallowRoute(false)}
       >
         <ArrowBackIosIcon />
         Trở lại câu trước
@@ -72,7 +50,7 @@ const Tools = () => {
         Lưu và nộp bài
       </Button>
       <Button
-        onClick={() => handleChangeNextShallowRoute()}
+        onClick={() => handleChangeShallowRoute(true)}
         className={classes.nextButton}
       >
         Câu tiếp theo
