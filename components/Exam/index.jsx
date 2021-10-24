@@ -27,7 +27,6 @@ const Exam = () => {
     }
   }, []);
   const { questionList } = useSelector((state) => state.questionList);
-  console.log(questionList);
   if (questionList) {
     return (
       <div className={`${classes.root} ${classes.bodyScroll}`}>

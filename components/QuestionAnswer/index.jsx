@@ -14,6 +14,7 @@ const QuestionAnswer = ({ questionList }) => {
   const dispatch = useDispatch();
   const questionIndex = router.query.question;
   let question = questionList[questionIndex - 1];
+  console.log(question);
 
   const handleChosenQuestion = (questionId, answerId) => {
     console.log(questionId, answerId);
@@ -23,31 +24,35 @@ const QuestionAnswer = ({ questionList }) => {
     });
   };
 
-  return (
-    <>
-      <div className={classes.root}>
-        <div className={classes.header}>
-          <Typography>Câu số {questionIndex}</Typography>
+  if (question) {
+    return (
+      <>
+        <div className={classes.root}>
+          <div className={classes.header}>
+            <Typography>Câu số {questionIndex}</Typography>
+          </div>
+          <div className={classes.containerQuestion}>
+            <Typography className={classes.content}>
+              {question?.question}
+            </Typography>
+          </div>
+          <div className={classes.containerAnswer}>
+            <RadioButtonsGroup
+              classNames={classes}
+              question={question}
+              handleChosenQuestion={handleChosenQuestion}
+            />
+            {/* <CheckboxesGroup classNames={classes} />
+            <RadioButtonsGroup classNames={classes} />
+            <CheckboxesGroup classNames={classes} /> */}
+          </div>
         </div>
-        <div className={classes.containerQuestion}>
-          <Typography className={classes.content}>
-            {question.question}
-          </Typography>
-        </div>
-        <div className={classes.containerAnswer}>
-          <RadioButtonsGroup
-            classNames={classes}
-            question={question}
-            handleChosenQuestion={handleChosenQuestion}
-          />
-          {/* <CheckboxesGroup classNames={classes} />
-          <RadioButtonsGroup classNames={classes} />
-          <CheckboxesGroup classNames={classes} /> */}
-        </div>
-      </div>
-      <Tools />
-    </>
-  );
+        <Tools />
+      </>
+    );
+  } else {
+    return <div></div>;
+  }
 };
 
 export default QuestionAnswer;
