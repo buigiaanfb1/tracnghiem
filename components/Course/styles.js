@@ -35,20 +35,22 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: '500',
   },
   buttonDoIt: {
-    margin: '1rem 0',
-    background: '#736CED',
-    color: '#FFF',
-    borderRadius: '8px',
-    padding: '0.5rem 1.25rem',
-    '& .MuiButton-label > p': {
-      fontSize: '14px',
-      textTransform: 'none',
-      fontWeight: '500',
-      lineHeight: '1.2',
-    },
-    '&:hover': {
-      background: '#5951ed',
+    '&.MuiButton-root': {
+      margin: '1rem 0',
+      background: '#736CED',
       color: '#FFF',
+      borderRadius: '8px',
+      padding: '0.5rem 1.25rem',
+      '& .MuiButton-label > p': {
+        fontSize: '14px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+      },
+      '&:hover': {
+        background: '#5951ed',
+        color: '#FFF',
+      },
     },
   },
   containerButton: {
