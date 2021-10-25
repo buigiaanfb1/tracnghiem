@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "label": "Amazon Web Services (AWS)"
+    },
+    {
+        "id": "2",
+        "label": "Blockchain"
+    },
+    {
+        "id": "3",
+        "label": "Tools and Utilities"
+    },
+    {
+        "id": "4",
+        "label": "Google Cloud Platform (GCP)"
+    },
+    {
+        "id": "5",
+        "label": "Security"
+    },
+    {
+        "id": "6",
+        "label": "Web Development"
+    },
+    {
+        "id": "7",
+        "label": "Mobile App"
+    },
+    {
+        "id": "8",
+        "label": "Machine Learning"
+    },
+    {
+        "id": "9",
+        "label": "Security"
+    }
+]

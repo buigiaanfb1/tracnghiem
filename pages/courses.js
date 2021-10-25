@@ -1,10 +1,10 @@
 import Layout from '../components/layout/Layout';
-import History from '../components/History';
+import CoursesPage from '../components/CoursesPage';
 
 const Index = () => {
-  return <History />;
+  return <CoursesPage />;
 };
 
-Index.getLayout = (page) => <Layout title="History | Easy10">{page}</Layout>;
+Index.getLayout = (page) => <Layout title="Courses | Easy10">{page}</Layout>;
 
 export default Index;
