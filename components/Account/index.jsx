@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import FormAccount from '../Form/FormAccount';
 import { accountProfile } from '../../common/InputForm';
+import withAuth from '../../HOC/withAuth.js';
 
 const Account = () => {
   const classes = useStyles();

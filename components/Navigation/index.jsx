@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -38,20 +38,18 @@ const NavigationBar = () => {
         </Link>
       </div>
       <div className={classes.containerItems}>{handleRenderNavigate()}</div>
-      <div className={classes.signOutContainer}>
-        <ExitToAppIcon className={classes.iconLogout} />
-      </div>
       <>
         {!session && (
-          <>
-            Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
-          </>
+          <Link href="/login" passHref>
+            <Button className={classes.buttonSignIn}>Đăng nhập</Button>
+          </Link>
         )}
         {session && (
           <>
             Signed in as {session.user.email} <br />
-            <button onClick={() => signOut()}>Sign out</button>
+            <div className={classes.signOutContainer} onClick={() => signOut()}>
+              <ExitToAppIcon className={classes.iconLogout} />
+            </div>
           </>
         )}
       </>

@@ -57,6 +57,10 @@ export const useStyles = makeStyles((theme) => ({
           fontWeight: '500',
         },
       },
+      '& .MuiCircularProgress-root': {
+        color: '#fff',
+        marginRight: '8px',
+      },
     },
   },
   containerOr: {

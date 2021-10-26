@@ -93,4 +93,25 @@ export const useStyles = makeStyles((theme) => ({
       color: '#c46d4d',
     },
   },
+  buttonSignIn: {
+    '&.MuiButton-root': {
+      width: '100%',
+      background: '#5951ed',
+      color: '#fff',
+      borderRadius: '0',
+      padding: '0.75rem',
+      transition: 'all 0.3s',
+      '& .MuiButton-label': {
+        fontSize: '12px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+      },
+      '&:hover': {
+        background: '#3027d9',
+        color: '#FFF',
+        transition: 'all 0.3s',
+      },
+    },
+  },
 }));

@@ -7,8 +7,9 @@ import Head from 'next/head';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const schema = yup
+const schemaSignUp = yup
   .object({
     email: yup.string().email('Invalid format').required('Email is required'),
     password: yup
@@ -25,14 +26,21 @@ const schema = yup
   })
   .required();
 
-const Form = ({ type, title, inputs }) => {
+const schemaLogin = yup
+  .object({
+    email: yup.string().required('Email is required'),
+    password: yup.string().required('Password is required'),
+  })
+  .required();
+
+const Form = ({ type, title, inputs, handleFilledForm }) => {
   const classes = useStyles();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(type === 'login' ? schemaLogin : schemaSignUp),
   });
 
   const handleRenderInputs = (register, errors) => {
@@ -53,7 +61,7 @@ const Form = ({ type, title, inputs }) => {
     });
   };
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    handleFilledForm(data);
   };
 
   return (
@@ -87,6 +95,7 @@ const Form = ({ type, title, inputs }) => {
         </div>
 
         <Button className={classes.buttonLogin} type="submit">
+          {/* <CircularProgress size={16} /> */}
           <Typography>{title}</Typography>
         </Button>
       </form>

@@ -5,6 +5,8 @@ import { themeDark, themeLight } from '../utils/theme';
 import { wrapper } from '../redux/config';
 import React, { useState, useEffect } from 'react';
 import ToggleTheme from '../components/ToggleTheme';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function MyApp({ Component, ...pageProps }) {
   const [light, setLight] = useState(false);
@@ -35,6 +37,7 @@ function MyApp({ Component, ...pageProps }) {
       <CssBaseline />
       <ToggleTheme onChangeTheme={handleChangeTheme} theme={light} />
       <Component {...pageProps} />
+      <ToastContainer position="bottom-right" />
     </ThemeProvider>
   );
 }
