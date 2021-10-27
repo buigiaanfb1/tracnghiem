@@ -88,9 +88,11 @@ const Form = ({ type, title, inputs, handleFilledForm }) => {
         {handleRenderInputs(register, errors)}
         <div className={classes.forgotPassword}>
           {type == 'login' && (
-            <Typography className={classes.purpleText}>
-              Forgot Password?
-            </Typography>
+            <Link href="/password/forgot" passHref>
+              <Typography className={classes.purpleText}>
+                Forgot Password?
+              </Typography>
+            </Link>
           )}
         </div>
 
