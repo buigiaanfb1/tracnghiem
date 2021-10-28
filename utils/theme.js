@@ -19,6 +19,8 @@ const themeLight = createTheme({
       contract: '#000',
       pin: '#fafafa',
       unread: '#eef3f7',
+      always: '#fff',
+      activePagination: 'rgba(20, 0, 255, 0.2)',
     },
     text: {
       primary: '#5B587C',
@@ -83,6 +85,8 @@ const themeDark = createTheme({
       contract: '#fafafa',
       pin: '#19183A',
       unread: 'rgba(256,256,256,0.1)',
+      always: '#000',
+      activePagination: '#918FFF',
     },
     text: {
       primary: '#fafafa',

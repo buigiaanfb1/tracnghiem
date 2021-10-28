@@ -7,7 +7,7 @@ import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 
-const CourseCategory = () => {
+const Course = () => {
   const classes = useStyles();
   const router = useRouter();
 
@@ -51,4 +51,4 @@ const CourseCategory = () => {
   );
 };
 
-export default CourseCategory;
+export default Course;

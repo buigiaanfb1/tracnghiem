@@ -5,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@material-ui/core';
-import CourseCategory from '../CourseCategory';
+import CoursesPagination from '../CoursesPagination';
 
 const StyledTabs = withStyles({
   root: {
@@ -112,21 +112,16 @@ export default function CustomizedTabs() {
         </StyledTabs>
         <Typography className={classes.padding} />
         <TabPanel value={value} index={0}>
-          <CourseCategory />
-          <CourseCategory />
+          <CoursesPagination />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <CourseCategory />
-          <CourseCategory />
-          <CourseCategory />
-          <CourseCategory />
+          <CoursesPagination />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <CourseCategory />
+          <CoursesPagination />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <CourseCategory />
-          <CourseCategory />
+          <CoursesPagination />
         </TabPanel>
       </div>
     </div>

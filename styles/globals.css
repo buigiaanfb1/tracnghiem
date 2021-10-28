@@ -25,7 +25,7 @@ a {
   left: 50px;
   overflow: hidden;
   padding: 0;
-  z-index: 999;
+  z-index: 9999999;
   transform: translate3d(-50%, -50%, 0);
 }
 .toggleWrapper input {
