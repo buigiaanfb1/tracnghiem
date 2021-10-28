@@ -5,6 +5,7 @@ const courseSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
+  questions: [{}],
   level: {
     type: String,
     default: 'beginner',

@@ -95,6 +95,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   buttonSignIn: {
     '&.MuiButton-root': {
+      marginTop: '2rem',
       width: '100%',
       background: '#5951ed',
       color: '#fff',
@@ -102,7 +103,7 @@ export const useStyles = makeStyles((theme) => ({
       padding: '0.75rem',
       transition: 'all 0.3s',
       '& .MuiButton-label': {
-        fontSize: '12px',
+        fontSize: '14px',
         textTransform: 'none',
         fontWeight: '500',
         lineHeight: '1.2',
