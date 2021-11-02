@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@material-ui/core';
+import { tabs } from '../../common/Tabs';
+import { useRouter } from 'next/router';
 import CoursesPagination from '../CoursesPagination';
 
 const StyledTabs = withStyles({
@@ -91,10 +93,28 @@ function a11yProps(index) {
 
 export default function CustomizedTabs() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const router = useRouter();
+  const [value, setValue] = useState('');
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  useEffect(() => {
+    if (!router.isReady) return;
+    let type = router.query.type || 'available';
+    if (type) {
+      setValue(type);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.isReady, router]);
+
+  const handleChange = (e, newValue) => {
+    router.push(
+      {
+        query: {
+          page: 1,
+          type: newValue,
+        },
+      },
+      undefined
+    );
   };
 
   return (
@@ -103,15 +123,28 @@ export default function CustomizedTabs() {
         <StyledTabs
           value={value}
           onChange={handleChange}
-          aria-label="styled tabs example"
+          aria-label="category courses"
         >
-          <StyledTab label="Available Courses" {...a11yProps(0)} />
-          <StyledTab label="Trending Courses" {...a11yProps(1)} />
-          <StyledTab label="Contributing Courses" {...a11yProps(2)} />
-          <StyledTab label="My Courses" {...a11yProps(3)} />
+          {tabs.map((tab) => {
+            return (
+              <StyledTab
+                value={tab.name}
+                label={tab.label}
+                {...a11yProps(tab.id)}
+                key={tab.id}
+              />
+            );
+          })}
         </StyledTabs>
         <Typography className={classes.padding} />
-        <TabPanel value={value} index={0}>
+        {tabs.map((tab, index) => {
+          return (
+            <TabPanel value={value} index={tab.name} key={tab.id}>
+              <CoursesPagination />
+            </TabPanel>
+          );
+        })}
+        {/* <TabPanel value={value} index={0}>
           <CoursesPagination />
         </TabPanel>
         <TabPanel value={value} index={1}>
@@ -122,7 +155,7 @@ export default function CustomizedTabs() {
         </TabPanel>
         <TabPanel value={value} index={3}>
           <CoursesPagination />
-        </TabPanel>
+        </TabPanel> */}
       </div>
     </div>
   );

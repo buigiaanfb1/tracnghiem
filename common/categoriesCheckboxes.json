@@ -1,38 +1,64 @@
 [
     {
         "id": "1",
-        "label": "Amazon Web Services (AWS)"
+        "label": "Amazon Web Services (AWS)",
+        "name": "amazon-web-services",
+        "selected": false
     },
     {
         "id": "2",
-        "label": "Blockchain"
+        "label": "Blockchain",
+        "name": "blockchain",
+        "selected": false
+
     },
     {
         "id": "3",
-        "label": "Tools and Utilities"
+        "label": "Tools and Utilities",
+        "name": "tools-and-utilities",
+        "selected": false
+
     },
     {
         "id": "4",
-        "label": "Google Cloud Platform (GCP)"
+        "label": "Google Cloud Platform (GCP)",
+        "name": "google-cloud-platform",
+        "selected": false
+
     },
     {
         "id": "5",
-        "label": "Security"
+        "label": "Security",
+        "name": "security",
+        "selected": false
+
     },
     {
         "id": "6",
-        "label": "Web Development"
+        "label": "Web Development",
+        "name": "web-development",
+        "selected": false
+
     },
     {
         "id": "7",
-        "label": "Mobile App"
+        "label": "Mobile App",
+        "name": "mobile-app",
+        "selected": false
+
     },
     {
         "id": "8",
-        "label": "Machine Learning"
+        "label": "Machine Learning",
+        "name": "machine-learning",
+        "selected": false
+
     },
     {
         "id": "9",
-        "label": "Security"
+        "label": "Security",
+        "name": "security",
+        "selected": false
+
     }
 ]

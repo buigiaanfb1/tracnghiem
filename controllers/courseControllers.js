@@ -13,9 +13,12 @@ const newCourse = catchAsyncError(async (req, res, next) => {
 const allCourses = catchAsyncError(async (req, res, next) => {
   const resPerPage = 10;
   const courseCount = await Course.countDocuments();
-  const apiFeatures = new APIFeatures(Course.find(), req.query);
+  const apiFeatures = new APIFeatures(Course.find(), req.query)
+    .search()
+    .filter();
 
   let courses = await apiFeatures.query;
+  console.log(courses);
   let filteredCoursesCount = courses.length;
 
   apiFeatures.pagination(resPerPage);
