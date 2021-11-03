@@ -18,7 +18,6 @@ const allCourses = catchAsyncError(async (req, res, next) => {
     .filter();
 
   let courses = await apiFeatures.query;
-  console.log(courses);
   let filteredCoursesCount = courses.length;
 
   apiFeatures.pagination(resPerPage);
@@ -33,4 +32,12 @@ const allCourses = catchAsyncError(async (req, res, next) => {
   });
 });
 
-export { newCourse, allCourses };
+const trendingCourses = catchAsyncError(async (req, res, next) => {
+  let trendingCourses = await Course.find().sort({ totalViews: -1 }).limit(10);
+  res.status(200).json({
+    success: true,
+    trendingCourses,
+  });
+});
+
+export { newCourse, allCourses, trendingCourses };

@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStyles } from './styles';
 import { Typography } from '@material-ui/core';
 import Course from '../Course';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { useSelector } from 'react-redux';
 
 const Courses = () => {
   const classes = useStyles();
+  const trendingCourses = useSelector(
+    (state) => state.trending.trendingCourses
+  );
+
+  useEffect(() => {
+    console.log(trendingCourses);
+  }, [trendingCourses]);
 
   const handleRenderCourse = () => {
-    return Array(10)
-      .fill(10)
-      .map((course, index) => {
-        return (
-          <div className={classes.item} key={index}>
-            <Paper className={classes.paper}>
-              <Course />
-            </Paper>
-          </div>
-        );
-      });
+    return trendingCourses.map((course, index) => {
+      return (
+        <div className={classes.item} key={course._id}>
+          <Paper className={classes.paper}>
+            <Course course={course} />
+          </Paper>
+        </div>
+      );
+    });
   };
   return (
     <div className={classes.root}>
@@ -33,4 +39,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default React.memo(Courses);

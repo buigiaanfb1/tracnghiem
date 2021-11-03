@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   cover: {
     width: '100%',
+    maxHeight: '200px',
     objectFit: 'cover',
     borderTopLeftRadius: '8px',
     borderTopRightRadius: '8px',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SearchBar from '../SearchBar';
 import { useStyles } from './styles';
 import Button from '@material-ui/core/Button';
@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Typography } from '@material-ui/core';
 import Courses from '../Courses';
 import CategoryPins from '../CategoryPins';
+import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -37,4 +38,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default React.memo(Dashboard);
