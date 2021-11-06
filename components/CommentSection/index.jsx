@@ -47,35 +47,69 @@ const CommentSection = () => {
 };
 
 const OtherComments = ({ comments, handleReply }) => {
-  const handleReplyOnChild = (e, id, input) => {
-    e.preventDefault();
-    handleReply(id, input);
-  };
   return comments
     .slice(0)
     .reverse()
     .map((comment) => {
       return (
-        <div key={comment.id}>
-          <span>{comment.input}</span>
-          <button
-            style={{ display: 'inline' }}
-            onClick={(e) => handleReplyOnChild(e, comment.id, 'hihi')}
-          >
-            Reply
-          </button>
-          <div style={{ marginLeft: '1rem' }}>
-            {comment.reply &&
-              comment.reply.length > 0 &&
-              comment.reply.map((comment) => {
-                return <div key={comment.id}>{comment.input}</div>;
-              })}
-          </div>
-        </div>
+        <SubCommentComponent
+          key={comment.id}
+          comment={comment}
+          handleReply={handleReply}
+        />
       );
     });
 };
 
+const SubComment = ({ comment, handleReply }) => {
+  const [visible, setVisible] = useState(false);
+  const [input, setInput] = useState('');
+
+  const handleReplyOnChild = (e) => {
+    e.preventDefault();
+    handleReply(comment.id, input);
+    setInput('');
+    setVisible(!visible);
+  };
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setInput(value);
+  };
+
+  return (
+    <div>
+      <span>{comment.input}</span>
+      <button
+        style={{ display: 'inline' }}
+        onClick={(e) => handleReplyOnChild(e)}
+      >
+        Reply
+      </button>
+      <div style={{ marginLeft: '1rem' }}>
+        {comment.reply &&
+          comment.reply.length > 0 &&
+          comment.reply.map((comment) => {
+            return <div key={comment.id}>{comment.input}</div>;
+          })}
+      </div>
+      <div>
+        {visible && (
+          <form onSubmit={handleReplyOnChild}>
+            <input
+              placeholder="Leave your comment..."
+              name="userInput"
+              value={input}
+              onChange={handleChange}
+            />
+            <button>submit</button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+};
+const SubCommentComponent = React.memo(SubComment);
 const OtherCommentsComponent = React.memo(OtherComments);
 
 export default CommentSection;
