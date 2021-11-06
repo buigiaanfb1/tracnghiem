@@ -32,14 +32,14 @@ const NavigationBar = () => {
   return (
     <div className={classes.root}>
       <div className={classes.containerLogo}>
-        <Link href="/" passHref>
+        <Link href="" passHref shallow>
           <Typography className={classes.logo}>Logo</Typography>
         </Link>
       </div>
       <div className={classes.containerItems}>{handleRenderNavigate()}</div>
       <>
         {!session && (
-          <Link href="/login" passHref>
+          <Link href="login" passHref>
             <Button className={classes.buttonSignIn}>Đăng nhập</Button>
           </Link>
         )}

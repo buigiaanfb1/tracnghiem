@@ -122,11 +122,11 @@ export const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.primary,
     },
   },
-  tableOfContent: {
+  containerOfDescription: {
     padding: '2rem 3rem',
     width: '68%',
   },
-  titleTableContent: {
+  titleDescription: {
     '&.MuiTypography-root': {
       fontSize: '22px',
       textTransform: 'none',
@@ -134,5 +134,9 @@ export const useStyles = makeStyles((theme) => ({
       marginBottom: '1rem',
       color: theme.palette.text.contract,
     },
+  },
+  containerOfComment: {
+    padding: '2rem 3rem',
+    width: '100%',
   },
 }));

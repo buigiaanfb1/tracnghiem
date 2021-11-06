@@ -2,6 +2,7 @@ import React from 'react';
 import { useStyles } from './styles';
 import SearchBar from '../SearchBar';
 import ChipTag from '../ChipTag';
+import CommentSection from '../CommentSection';
 import CheckboxesCategory from '../CheckboxesCategory';
 import TabCourses from '../TabCourses';
 const CoursesPage = () => {

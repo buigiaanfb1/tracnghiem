@@ -13,14 +13,14 @@ const NavLink = ({
 }) => {
   return router.asPath === navLinkName ||
     (abstractName && router.pathname.includes(abstractName)) ? (
-    <Link href={navLinkName} passHref>
+    <>
       <div className={classNames.itemActive}>
         <IconBold className={classNames.icon} />
         <Typography className={classNames.titleLink}>{content}</Typography>
       </div>
-    </Link>
+    </>
   ) : (
-    <Link href={'/' + navLinkName} passHref>
+    <Link href={'/' + navLinkName} passHref shallow>
       <div className={classNames.item}>
         <IconOutlined className={classNames.icon} />
         <Typography className={classNames.titleLink}>{content}</Typography>

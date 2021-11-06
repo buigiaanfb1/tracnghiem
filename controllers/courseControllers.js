@@ -33,7 +33,7 @@ const allCourses = catchAsyncError(async (req, res, next) => {
 });
 
 const trendingCourses = catchAsyncError(async (req, res, next) => {
-  let trendingCourses = await Course.find().sort({ totalViews: -1 }).limit(10);
+  let trendingCourses = await Course.find().sort({ totalViews: -1 }).limit(50);
   res.status(200).json({
     success: true,
     trendingCourses,

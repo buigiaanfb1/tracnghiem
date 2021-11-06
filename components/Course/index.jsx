@@ -16,7 +16,7 @@ const Course = ({ course }) => {
             Tổng số câu: {course.totalQuestions}.
           </Typography>
           <div className={classes.containerButton}>
-            <Link href={`/course/${course.slug}`}>
+            <Link href={`course/${course.slug}`} passHref>
               <Button className={classes.buttonDoIt}>
                 <Typography>Vào</Typography>
               </Button>

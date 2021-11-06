@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid');
 
+shortid.characters(
+  '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@'
+);
 const courseSchema = new mongoose.Schema({
   categoryId: {
     type: Number,
@@ -13,6 +17,11 @@ const courseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Please enter name of the course'],
+  },
+  slugId: {
+    type: String,
+    unique: true,
+    default: shortid.generate,
   },
   slug: {
     type: String,
