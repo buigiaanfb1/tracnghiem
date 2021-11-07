@@ -137,6 +137,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   containerOfComment: {
     padding: '2rem 3rem',
-    width: '100%',
+    width: '68%',
   },
 }));
