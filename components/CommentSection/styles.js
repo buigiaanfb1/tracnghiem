@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     flexDirection: 'column',
     alignItems: 'flex-end',
-    '& input': {
+    '& textarea': {
       border: 'none',
       color: theme.palette.text.primary,
       width: '100%',
@@ -40,6 +40,8 @@ export const useStyles = makeStyles((theme) => ({
       outline: 'none',
       borderBottom: `1px solid ${theme.palette.border.default}`,
       marginBottom: '0.5rem',
+      fontFamily: 'inherit',
+      resize: 'none',
     },
   },
   containerButtons: {

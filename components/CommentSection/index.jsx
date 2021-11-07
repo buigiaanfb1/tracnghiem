@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useStyles } from './styles';
 import { Typography } from '@material-ui/core';
-
+import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 
 const CommentSection = () => {
@@ -96,7 +96,7 @@ const SubComment = ({ comment, handleReply }) => {
   return (
     <>
       <div className={classes.containerOtherComments}>
-        <img src="https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp" />
+        <img src="https://img-c.udemycdn.com/course/480x270/1026604_790b_2.jpg" />
         <div className={classes.otherCommentsContent}>
           <Typography style={{ fontSize: 14, fontWeight: '500' }}>
             {comment.user.username}
@@ -197,20 +197,21 @@ const UserInput = ({ onSubmit, type = null }) => {
     <form onSubmit={handleSubmit}>
       <div className={classes.containerUserInput}>
         <img
-          src="https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp"
+          src="https://img-c.udemycdn.com/course/480x270/1026604_790b_2.jpg"
           style={{
             width: `${type ? '24px' : '48px'}`,
             height: `${type ? '24px' : '48px'}`,
           }}
         />
         <div className={classes.inputAndButtons}>
-          <input
+          <TextareaAutosize
             placeholder="Leave your comment..."
             name="userInput"
             value={input}
             onChange={handleChange}
             onClick={() => handleExpand()}
-          />
+            maxRows={10}
+          ></TextareaAutosize>
           {expand && (
             <div className={classes.containerButtons}>
               <button
