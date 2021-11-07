@@ -53,4 +53,37 @@ export const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
     },
   },
+  submitButton: {
+    '&.MuiButton-root': {
+      background: '#5951ed',
+      transition: 'all 0.3s',
+      '& .MuiButton-label > p': {
+        fontSize: '14px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+        color: '#fff',
+      },
+      '&:hover': {
+        background: '#3027d9',
+        transition: 'all 0.3s',
+      },
+    },
+  },
+  closeButton: {
+    '&.MuiButton-root': {
+      boxShadow: 'none',
+      transition: 'all 0.3s',
+      '& .MuiButton-label > p': {
+        fontSize: '14px',
+        textTransform: 'none',
+        fontWeight: '500',
+        lineHeight: '1.2',
+        color: '#000',
+      },
+      '&:hover': {
+        transition: 'all 0.3s',
+      },
+    },
+  },
 }));

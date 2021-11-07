@@ -1,13 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { useStyles } from './styles';
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 
 const CommentSection = () => {
-  const classes = useStyles();
   const [state, setState] = useState([]);
-  const [input, setInput] = useState('');
 
   const handleSubmit = useCallback(
     (input) => {
@@ -24,31 +22,6 @@ const CommentSection = () => {
           },
         },
       ]);
-      setInput('');
-    },
-    [state]
-  );
-
-  const handleReply = useCallback(
-    (id, input) => {
-      const stateFake = [...state];
-      stateFake.map((comment) => {
-        if (comment.id === id) {
-          comment.reply = [
-            ...comment.reply,
-            {
-              id,
-              input,
-              user: {
-                username: 'saith ce clare',
-                avatar:
-                  'https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp',
-              },
-            },
-          ];
-        }
-      });
-      setState(stateFake);
     },
     [state]
   );
@@ -57,7 +30,7 @@ const CommentSection = () => {
     <div>
       <h3>CommentSection</h3>
       <UserInputComponent onSubmit={handleSubmit} />
-      <OtherCommentsComponent comments={state} handleReply={handleReply} />
+      <OtherCommentsComponent comments={state} />
     </div>
   );
 };
@@ -83,13 +56,27 @@ const OtherComments = ({ comments, handleReply }) => {
   );
 };
 
-const SubComment = ({ comment, handleReply }) => {
+const SubComment = ({ comment }) => {
   const classes = useStyles();
+  const [state, setState] = useState(comment);
   const [visible, setVisible] = useState(false);
 
   console.log('SubComment render');
   const handleSubmit = (input) => {
-    handleReply(comment.id, input);
+    let fakeState = state;
+    fakeState.reply = [
+      ...fakeState.reply,
+      {
+        id: uuidv4(),
+        input,
+        user: {
+          username: 'saith ce clare',
+          avatar:
+            'https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp',
+        },
+      },
+    ];
+    setState(fakeState);
     setVisible(!visible);
   };
 
@@ -101,7 +88,9 @@ const SubComment = ({ comment, handleReply }) => {
           <Typography style={{ fontSize: 14, fontWeight: '500' }}>
             {comment.user.username}
           </Typography>
-          <Typography style={{ fontSize: 14, lineHeight: '1.2' }}>
+          <Typography
+            style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre' }}
+          >
             {comment.input}
           </Typography>
           <div
@@ -123,7 +112,7 @@ const SubComment = ({ comment, handleReply }) => {
       </div>
       <div>
         {visible && (
-          <div style={{ margin: '1rem 0 1rem 1rem' }}>
+          <div style={{ margin: '1rem 0 1rem 4rem' }}>
             <UserInputComponent onSubmit={handleSubmit} type="sub" />
           </div>
         )}
@@ -158,6 +147,7 @@ const SubComment = ({ comment, handleReply }) => {
                       fontSize: 14,
                       lineHeight: '1.2',
                       marginTop: '0.25rem',
+                      whiteSpace: 'pre',
                     }}
                   >
                     {comment.input}
@@ -214,15 +204,25 @@ const UserInput = ({ onSubmit, type = null }) => {
           ></TextareaAutosize>
           {expand && (
             <div className={classes.containerButtons}>
-              <button
+              <Button
+                variant="contained"
+                className={classes.closeButton}
                 onClick={() => {
                   setExpand(false);
                   setInput('');
                 }}
               >
-                Huỷ
-              </button>
-              <button type="submit">Submit</button>
+                <Typography>Huỷ</Typography>
+              </Button>
+              <Button
+                type="submit"
+                className={
+                  input.length > 0 ? classes.submitButton : classes.closeButton
+                }
+                disabled={input.length > 0 ? false : true}
+              >
+                <Typography>Submit</Typography>
+              </Button>
             </div>
           )}
         </div>
