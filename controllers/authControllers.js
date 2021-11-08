@@ -78,7 +78,6 @@ const resetPassword = catchAsyncError(async (req, res, next) => {
       )
     );
   }
-  console.log('dadaw', req.body);
   if (req.body.password !== req.body.passwordConfirmation) {
     return next(new ErrorHandler('Password does not match', 400));
   }
@@ -95,4 +94,13 @@ const resetPassword = catchAsyncError(async (req, res, next) => {
   });
 });
 
-export { registerUser, forgotPassword, resetPassword };
+// Current user profile => /api/me
+const currentUserProfile = catchAsyncError(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
+export { registerUser, forgotPassword, resetPassword, currentUserProfile };

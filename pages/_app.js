@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { themeDark, themeLight } from '../utils/theme';
-import { wrapper } from '../redux/config';
+import { wrapper } from '../redux/store';
 import React, { useState, useEffect } from 'react';
 import ToggleTheme from '../components/ToggleTheme';
 import { ToastContainer, Slide } from 'react-toastify';

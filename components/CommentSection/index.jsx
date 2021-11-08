@@ -1,11 +1,23 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useStyles } from './styles';
 import { Button, Typography } from '@material-ui/core';
 import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
+import useAxios from '../../hooks/useAxios';
 
 const CommentSection = () => {
   const [state, setState] = useState([]);
+  const { response, loading, error } = useAxios({
+    method: 'get',
+    url: '/api/course/comments?id=123123',
+    headers: JSON.stringify({ accept: '*/*' }),
+  });
+
+  useEffect(() => {
+    if (response !== null) {
+      console.log(response);
+    }
+  }, [response]);
 
   const handleSubmit = useCallback(
     (input) => {

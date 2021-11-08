@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import themeReducer from './themeReducer';
 import { questionListReducer } from './questionsReducer';
-import { authReducer } from './userReducer';
+import { authReducer, loadedUserReducer } from './userReducer';
 import { coursesTrendingListReducer } from './courseReducer';
 
 const reducers = combineReducers({
@@ -9,6 +9,7 @@ const reducers = combineReducers({
   questionList: questionListReducer,
   auth: authReducer,
   trending: coursesTrendingListReducer,
+  loadedUser: loadedUserReducer,
 });
 
 export default reducers;

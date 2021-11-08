@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Button, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import NavLink from './../NavLink';
 import { mainNavigate } from '../../common/Link';
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { signOut } from 'next-auth/client';
+import { loadUser } from '../../redux/actions/userActions';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavigationBar = () => {
   const classes = useStyles();
   const router = useRouter();
-  const [session, loading] = useSession();
+  const dispatch = useDispatch();
+  const { user, loading } = useSelector((state) => state.loadedUser);
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch]);
 
-  const handleRenderNavigate = () => {
+  const handleRenderNavigate = useCallback(() => {
     return mainNavigate.map((link) => {
       return (
         <NavLink
@@ -27,25 +33,25 @@ const NavigationBar = () => {
         />
       );
     });
-  };
+  }, []);
 
   return (
     <div className={classes.root}>
       <div className={classes.containerLogo}>
-        <Link href="" passHref shallow>
+        <Link href="/" passHref shallow>
           <Typography className={classes.logo}>Logo</Typography>
         </Link>
       </div>
       <div className={classes.containerItems}>{handleRenderNavigate()}</div>
       <>
-        {!session && (
+        {!loading && !user && (
           <Link href="login" passHref>
             <Button className={classes.buttonSignIn}>Đăng nhập</Button>
           </Link>
         )}
-        {session && (
+        {!loading && user && (
           <>
-            Signed in as {session.user.email} <br />
+            Signed in as {user.email} <br />
             <div className={classes.signOutContainer} onClick={() => signOut()}>
               <ExitToAppIcon className={classes.iconLogout} />
             </div>

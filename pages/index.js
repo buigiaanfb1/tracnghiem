@@ -1,7 +1,7 @@
 import Home from '../templates/Home';
 import Layout from '../components/layout/Layout';
 import { trendingCourses } from '../redux/actions/courseAction';
-import { wrapper } from '../redux/config';
+import { wrapper } from '../redux/store';
 
 const Index = () => {
   return <Home />;

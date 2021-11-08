@@ -59,10 +59,11 @@ export const useStyles = makeStyles((theme) => ({
       transition: 'all 0.3s',
       '& .MuiButton-label > p': {
         fontSize: '14px',
+
         textTransform: 'none',
         fontWeight: '500',
         lineHeight: '1.2',
-        color: '#fff',
+        color: theme.palette.text.white,
       },
       '&:hover': {
         background: '#3027d9',
@@ -71,6 +72,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   closeButton: {
+    backgroundColor: 'transparent',
     '&.MuiButton-root': {
       boxShadow: 'none',
       transition: 'all 0.3s',
@@ -79,7 +81,7 @@ export const useStyles = makeStyles((theme) => ({
         textTransform: 'none',
         fontWeight: '500',
         lineHeight: '1.2',
-        color: '#000',
+        color: theme.palette.text.contract,
       },
       '&:hover': {
         transition: 'all 0.3s',

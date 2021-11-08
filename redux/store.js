@@ -3,12 +3,13 @@ import { HYDRATE, createWrapper } from 'next-redux-wrapper';
 import thunkMiddleware from 'redux-thunk';
 import reducers from './reducers/reducers';
 
-const bindMiddleware = (middleWare) => {
+const bindMiddleware = (middlware) => {
   if (process.env.NODE_ENV !== 'production') {
     const { composeWithDevTools } = require('redux-devtools-extension');
-    return composeWithDevTools(applyMiddleware(...middleWare));
+    return composeWithDevTools(applyMiddleware(...middlware));
   }
-  return applyMiddleware(...middleWare);
+
+  return applyMiddleware(...middlware);
 };
 
 const reducer = (state, action) => {
