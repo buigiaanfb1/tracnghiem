@@ -15,7 +15,7 @@ const CommentSection = () => {
 
   useEffect(() => {
     if (response !== null) {
-      console.log(response);
+      setState(response.comments);
     }
   }, [response]);
 
@@ -98,12 +98,12 @@ const SubComment = ({ comment }) => {
         <img src="https://img-c.udemycdn.com/course/480x270/1026604_790b_2.jpg" />
         <div className={classes.otherCommentsContent}>
           <Typography style={{ fontSize: 14, fontWeight: '500' }}>
-            {comment.user.username}
+            {comment.username}
           </Typography>
           <Typography
             style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre' }}
           >
-            {comment.input}
+            {comment.content}
           </Typography>
           <div
             style={{
