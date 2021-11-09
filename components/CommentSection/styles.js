@@ -10,6 +10,15 @@ export const useStyles = makeStyles((theme) => ({
       borderRadius: '50%',
     },
   },
+  titleComment: {
+    '&.MuiTypography-root': {
+      fontSize: '22px',
+      textTransform: 'none',
+      fontWeight: '500',
+      marginBottom: '1rem',
+      color: theme.palette.text.contract,
+    },
+  },
   containerOtherComments: {
     display: 'flex',
     marginTop: '1rem',

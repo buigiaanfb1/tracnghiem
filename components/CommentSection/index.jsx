@@ -4,12 +4,14 @@ import { Button, Typography } from '@material-ui/core';
 import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
-
-const CommentSection = () => {
+import CommentsNotFound from '../NotFound/CommentsNotFound';
+// courseId is ObjectID mongoDB not slugId
+const CommentSection = ({ courseId, user }) => {
+  const classes = useStyles();
   const [state, setState] = useState([]);
   const { response, loading, error } = useAxios({
     method: 'get',
-    url: '/api/course/comments?id=123123',
+    url: `/api/course/comments?id=${courseId}`,
     headers: JSON.stringify({ accept: '*/*' }),
   });
 
@@ -34,15 +36,22 @@ const CommentSection = () => {
           },
         },
       ]);
+      console.log(courseId, user._id, input);
     },
     [state]
   );
 
   return (
     <div>
-      <h3>CommentSection</h3>
+      <Typography variant="h3" className={classes.titleComment}>
+        Comments
+      </Typography>
       <UserInputComponent onSubmit={handleSubmit} />
-      <OtherCommentsComponent comments={state} />
+      {state.length > 0 ? (
+        <OtherCommentsComponent comments={state} />
+      ) : (
+        <CommentsNotFound />
+      )}
     </div>
   );
 };
@@ -247,4 +256,4 @@ const UserInputComponent = React.memo(UserInput);
 const SubCommentComponent = React.memo(SubComment);
 const OtherCommentsComponent = React.memo(OtherComments);
 
-export default CommentSection;
+export default React.memo(CommentSection);

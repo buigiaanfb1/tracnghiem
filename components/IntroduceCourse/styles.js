@@ -74,7 +74,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   cover: {
     width: '100%',
-    height: 'auto',
+    maxHeight: '275px',
+    objectFit: 'cover',
     borderTopLeftRadius: '8px',
     borderTopRightRadius: '8px',
   },

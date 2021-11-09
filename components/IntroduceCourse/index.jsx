@@ -4,10 +4,13 @@ import { useStyles } from './styles';
 import CommentSection from '../CommentSection';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 const IntroduceCourse = () => {
   const classes = useStyles();
   const router = useRouter();
+  const courseDetails = useSelector((state) => state.courseDetails.course);
+  const user = useSelector((state) => state.loadedUser.user);
   return (
     <>
       <div className={`${classes.root} ${classes.bodyScroll}`}>
@@ -15,12 +18,9 @@ const IntroduceCourse = () => {
           <div className={classes.container}>
             <div className={classes.leftHand}>
               <Typography variant="h1" className={classes.title}>
-                Node.js, Express, MongoDB & More: The Complete Bootcamp 2021
+                {courseDetails?.name}
               </Typography>
-              <Typography>
-                Master Node by building a real-world RESTful API and web app
-                (with authentication, Node.js security, payments & more)
-              </Typography>
+              <Typography>{courseDetails?.description}</Typography>
               <div className={classes.wrapperCreatedVsUpdated}>
                 <Typography className={classes.created}>
                   Created by <span>John Doe</span>
@@ -36,28 +36,17 @@ const IntroduceCourse = () => {
           <Typography className={classes.titleDescription}>
             Description
           </Typography>
-          <Typography>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the s standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only
-            five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </Typography>
+          <Typography>{courseDetails?.description}</Typography>
         </div>
         <div className={classes.containerOfComment}>
-          <CommentSection />
+          {courseDetails && user && (
+            <CommentSection courseId={courseDetails._id} user={user} />
+          )}
         </div>
       </div>
       <div className={classes.rightHand}>
         <div className={classes.containerModalCourse}>
-          <img
-            src="https://img-c.udemycdn.com/course/480x270/1026604_790b_2.jpg"
-            className={classes.cover}
-          />
+          <img src={courseDetails?.thumbnailImage} className={classes.cover} />
           <div className={classes.containerDescription}>
             <Link
               href={{

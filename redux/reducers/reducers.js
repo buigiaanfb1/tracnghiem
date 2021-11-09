@@ -2,7 +2,10 @@ import { combineReducers } from 'redux';
 import themeReducer from './themeReducer';
 import { questionListReducer } from './questionsReducer';
 import { authReducer, loadedUserReducer } from './userReducer';
-import { coursesTrendingListReducer } from './courseReducer';
+import {
+  coursesTrendingListReducer,
+  courseDetailsReducer,
+} from './courseReducer';
 
 const reducers = combineReducers({
   theme: themeReducer,
@@ -10,6 +13,7 @@ const reducers = combineReducers({
   auth: authReducer,
   trending: coursesTrendingListReducer,
   loadedUser: loadedUserReducer,
+  courseDetails: courseDetailsReducer,
 });
 
 export default reducers;

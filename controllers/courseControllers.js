@@ -1,6 +1,7 @@
 import Course from '../models/course';
 import catchAsyncError from '../middlewares/catchAsyncError';
 import APIFeatures from '../utils/apiFeatures';
+import ErrorHandler from '../utils/errorHandler';
 
 const newCourse = catchAsyncError(async (req, res, next) => {
   const course = await Course.create(req.body);
@@ -40,4 +41,21 @@ const trendingCourses = catchAsyncError(async (req, res, next) => {
   });
 });
 
-export { newCourse, allCourses, trendingCourses };
+const coursesBySlug = catchAsyncError(async (req, res, next) => {
+  let slugId = req.query.id;
+  if (slugId) {
+    let course = await Course.findOne({ slugId: slugId });
+    if (course) {
+      res.status(200).json({
+        success: true,
+        course,
+      });
+    } else {
+      return next(new ErrorHandler('Invalid ID', 400));
+    }
+  } else {
+    return next(new ErrorHandler('ID is empty', 400));
+  }
+});
+
+export { newCourse, allCourses, trendingCourses, coursesBySlug };

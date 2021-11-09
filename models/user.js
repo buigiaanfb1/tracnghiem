@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
   avatar: {
     url: {
       type: String,
+      default: 'https://graph.facebook.com/674527979558467/picture?type=large',
     },
   },
   facebook: {
