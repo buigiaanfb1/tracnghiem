@@ -1,5 +1,5 @@
 import Layout from '../../../../components/layout/Layout';
-import { wrapper } from '../../../../redux/config';
+import { wrapper } from '../../../../redux/store';
 import Exam from '../../../../components/Exam';
 import { getQuestionList } from '../../../../redux/actions/questionsAction';
 const Index = () => {

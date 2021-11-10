@@ -2,7 +2,7 @@ import Layout from '../../components/layout/Layout';
 import PersonalInformation from '../../components/PersonalInformation';
 import LayoutProfile from '../../components/layout/LayoutProfile';
 import { getSession } from 'next-auth/client';
-import { wrapper } from '../../redux/config';
+import { wrapper } from '../../redux/store';
 
 const Index = () => {
   return (
