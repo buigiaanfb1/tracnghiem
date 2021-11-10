@@ -7,7 +7,7 @@ const Index = () => {
   return <IntroduceCourse />;
 };
 
-Index.getLayout = (page) => <Layout title="Account | Easy10">{page}</Layout>;
+Index.getLayout = (page) => <Layout>{page}</Layout>;
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>

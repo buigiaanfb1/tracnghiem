@@ -18,18 +18,22 @@ const newComment = catchAsyncError(async (req, res, next) => {
     content: req.body.content,
   };
 
+  let commentAfterSaved = null;
+
   if (courseComments) {
     courseComments.comments = [...courseComments.comments, comment];
-    await courseComments.save();
+    await courseComments.save().then((comments) => {
+      commentAfterSaved = comments.comments[comments.comments.length - 1];
+    });
   } else {
-    await Comment.create({
+    const comment = await Comment.create({
       course: req.body.courseId,
       comments: [comment],
     });
   }
-
   return res.status(200).json({
     success: true,
+    comment: commentAfterSaved,
   });
 });
 
@@ -43,6 +47,17 @@ const allComments = catchAsyncError(async (req, res, next) => {
     success: true,
     comments,
   });
+});
+
+const replyComment = catchAsyncError(async (req, res, next) => {
+  const comments = await Comment.findOne({ course: req.query.id });
+  if (!comments) {
+    return next(new ErrorHandler('No comments was found with this ID', 400));
+  }
+  const comment = comments.comments.filter(
+    (comment) => comment._id === req.query.commentId
+  );
+  comment.reply = [...comment.reply];
 });
 
 export { newComment, allComments };

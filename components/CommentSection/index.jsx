@@ -5,6 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
 import CommentsNotFound from '../NotFound/CommentsNotFound';
+import { postUserCommentService } from './CommentSectionServices';
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
   const classes = useStyles();
@@ -17,26 +18,25 @@ const CommentSection = ({ courseId, user }) => {
 
   useEffect(() => {
     if (response !== null) {
-      setState(response.comments);
+      setState(response.comments.comments);
     }
   }, [response]);
 
   const handleSubmit = useCallback(
-    (input) => {
-      setState([
-        ...state,
-        {
-          input,
-          reply: [],
-          id: uuidv4(),
-          user: {
-            username: 'saith ce clare',
-            avatar:
-              'https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp',
+    async (input) => {
+      const data = { courseId, userId: user._id, content: input };
+      const { data: dataComment, status } = await postUserCommentService(
+        '/api/course/comments',
+        data
+      );
+      if (status === 200) {
+        setState([
+          ...state,
+          {
+            ...dataComment.comment,
           },
-        },
-      ]);
-      console.log(courseId, user._id, input);
+        ]);
+      }
     },
     [state]
   );
@@ -46,9 +46,9 @@ const CommentSection = ({ courseId, user }) => {
       <Typography variant="h3" className={classes.titleComment}>
         Comments
       </Typography>
-      <UserInputComponent onSubmit={handleSubmit} />
+      {user && <UserInputComponent onSubmit={handleSubmit} user={user} />}
       {state.length > 0 ? (
-        <OtherCommentsComponent comments={state} />
+        <OtherCommentsComponent comments={state} user={user} />
       ) : (
         <CommentsNotFound />
       )}
@@ -56,7 +56,7 @@ const CommentSection = ({ courseId, user }) => {
   );
 };
 
-const OtherComments = ({ comments, handleReply }) => {
+const OtherComments = ({ comments, handleReply, user }) => {
   console.log('OtherComments render');
 
   return (
@@ -67,9 +67,10 @@ const OtherComments = ({ comments, handleReply }) => {
         .map((comment) => {
           return (
             <SubCommentComponent
-              key={comment.id}
+              key={comment._id}
               comment={comment}
               handleReply={handleReply}
+              user={user}
             />
           );
         })}
@@ -77,12 +78,14 @@ const OtherComments = ({ comments, handleReply }) => {
   );
 };
 
-const SubComment = ({ comment }) => {
+const SubComment = ({ comment, user }) => {
   const classes = useStyles();
   const [state, setState] = useState(comment);
   const [visible, setVisible] = useState(false);
 
   console.log('SubComment render');
+  console.log(comment);
+
   const handleSubmit = (input) => {
     let fakeState = state;
     fakeState.reply = [
@@ -104,10 +107,10 @@ const SubComment = ({ comment }) => {
   return (
     <>
       <div className={classes.containerOtherComments}>
-        <img src="https://img-c.udemycdn.com/course/480x270/1026604_790b_2.jpg" />
+        <img src={comment.avatar} />
         <div className={classes.otherCommentsContent}>
           <Typography style={{ fontSize: 14, fontWeight: '500' }}>
-            {comment.username}
+            {comment.name}
           </Typography>
           <Typography
             style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre' }}
@@ -134,7 +137,11 @@ const SubComment = ({ comment }) => {
       <div>
         {visible && (
           <div style={{ margin: '1rem 0 1rem 4rem' }}>
-            <UserInputComponent onSubmit={handleSubmit} type="sub" />
+            <UserInputComponent
+              onSubmit={handleSubmit}
+              type="sub"
+              user={user}
+            />
           </div>
         )}
       </div>
@@ -182,7 +189,7 @@ const SubComment = ({ comment }) => {
   );
 };
 
-const UserInput = ({ onSubmit, type = null }) => {
+const UserInput = ({ onSubmit, type = null, user }) => {
   const [input, setInput] = useState('');
   const [expand, setExpand] = useState(false);
   const classes = useStyles();
@@ -208,7 +215,7 @@ const UserInput = ({ onSubmit, type = null }) => {
     <form onSubmit={handleSubmit}>
       <div className={classes.containerUserInput}>
         <img
-          src="https://img-c.udemycdn.com/course/480x270/1026604_790b_2.jpg"
+          src={user.avatar.url}
           style={{
             width: `${type ? '24px' : '48px'}`,
             height: `${type ? '24px' : '48px'}`,

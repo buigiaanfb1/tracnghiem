@@ -39,7 +39,7 @@ const IntroduceCourse = () => {
           <Typography>{courseDetails?.description}</Typography>
         </div>
         <div className={classes.containerOfComment}>
-          {courseDetails && user && (
+          {courseDetails && (
             <CommentSection courseId={courseDetails._id} user={user} />
           )}
         </div>

@@ -14,10 +14,11 @@ const NavigationBar = () => {
   const classes = useStyles();
   const router = useRouter();
   const dispatch = useDispatch();
+
   const { user, loading } = useSelector((state) => state.loadedUser);
   useEffect(() => {
     dispatch(loadUser());
-  }, [dispatch]);
+  }, [router]);
 
   const handleRenderNavigate = useCallback(() => {
     return mainNavigate.map((link) => {
