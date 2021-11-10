@@ -38,7 +38,7 @@ const CommentSection = ({ courseId, user }) => {
         ]);
       }
     },
-    [state]
+    [state, user]
   );
 
   return (
@@ -84,7 +84,6 @@ const SubComment = ({ comment, user }) => {
   const [visible, setVisible] = useState(false);
 
   console.log('SubComment render');
-  console.log(comment);
 
   const handleSubmit = (input) => {
     let fakeState = state;

@@ -12,7 +12,7 @@ const newComment = catchAsyncError(async (req, res, next) => {
 
   if (!user) return next(new ErrorHandler('Invalid User', 400));
 
-  const comment = {
+  const data = {
     name: user.name,
     avatar: user.avatar.url,
     content: req.body.content,
@@ -21,15 +21,16 @@ const newComment = catchAsyncError(async (req, res, next) => {
   let commentAfterSaved = null;
 
   if (courseComments) {
-    courseComments.comments = [...courseComments.comments, comment];
+    courseComments.comments = [...courseComments.comments, data];
     await courseComments.save().then((comments) => {
       commentAfterSaved = comments.comments[comments.comments.length - 1];
     });
   } else {
-    const comment = await Comment.create({
+    const comments = await Comment.create({
       course: req.body.courseId,
-      comments: [comment],
+      comments: [data],
     });
+    commentAfterSaved = comments.comments[0];
   }
   return res.status(200).json({
     success: true,
