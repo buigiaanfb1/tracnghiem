@@ -6,6 +6,7 @@ import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
 import CommentsNotFound from '../NotFound/CommentsNotFound';
 import { postUserCommentService } from './CommentSectionServices';
+import { useSession } from 'next-auth/client';
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
   const classes = useStyles();
@@ -24,7 +25,7 @@ const CommentSection = ({ courseId, user }) => {
 
   const handleSubmit = useCallback(
     async (input) => {
-      const data = { courseId, userId: user._id, content: input };
+      const data = { courseId, content: input };
       const { data: dataComment, status } = await postUserCommentService(
         '/api/course/comments',
         data
@@ -87,19 +88,20 @@ const SubComment = ({ comment, user }) => {
 
   const handleSubmit = (input) => {
     let fakeState = state;
-    fakeState.reply = [
-      ...fakeState.reply,
-      {
-        id: uuidv4(),
-        input,
-        user: {
-          username: 'saith ce clare',
-          avatar:
-            'https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp',
-        },
-      },
-    ];
-    setState(fakeState);
+    console.log(comment, input, user);
+    // fakeState.reply = [
+    //   ...fakeState.reply,
+    //   {
+    //     id: uuidv4(),
+    //     input,
+    //     user: {
+    //       username: 'saith ce clare',
+    //       avatar:
+    //         'https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp',
+    //     },
+    //   },
+    // ];
+    // setState(fakeState);
     setVisible(!visible);
   };
 

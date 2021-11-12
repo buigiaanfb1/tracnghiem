@@ -8,13 +8,13 @@ const newComment = catchAsyncError(async (req, res, next) => {
   const courseComments = await Comment.findOne({
     course: req.body.courseId,
   });
-  const user = await User.findById(req.body.user);
+  const user = await User.findById(req.user._id);
 
   if (!user) return next(new ErrorHandler('Invalid User', 400));
 
   const data = {
-    name: user.name,
-    avatar: user.avatar.url,
+    name: req.user.name,
+    avatar: req.user.avatar.url,
     content: req.body.content,
   };
 
