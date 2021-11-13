@@ -97,4 +97,23 @@ export const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  dropdownReplyComments: {
+    marginLeft: '3.6rem',
+    display: 'flex',
+    alignItems: 'center',
+    color: '#5951ED',
+    cursor: 'pointer',
+    '& span': {
+      fontWeight: 500,
+    },
+  },
+  buttonLoadMore: {
+    marginTop: '1rem',
+    '&.MuiButton-root': {
+      width: '100%',
+      backgroundColor: '#5951ED',
+      color: '#fff',
+      borderRadius: '24px',
+    },
+  },
 }));

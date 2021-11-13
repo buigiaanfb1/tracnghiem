@@ -46,13 +46,26 @@ const NavigationBar = () => {
       <div className={classes.containerItems}>{handleRenderNavigate()}</div>
       <>
         {!loading && !user && (
-          <Link href="login" passHref>
+          <Link href="/login" passHref>
             <Button className={classes.buttonSignIn}>Đăng nhập</Button>
           </Link>
         )}
         {!loading && user && (
           <>
-            Signed in as {user.email} <br />
+            <div
+              style={{
+                marginTop: '2rem',
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <img
+                src={user.avatar.url}
+                style={{ borderRadius: '50%', width: '48px', height: '48px' }}
+              />
+            </div>
             <div className={classes.signOutContainer} onClick={() => signOut()}>
               <ExitToAppIcon className={classes.iconLogout} />
             </div>

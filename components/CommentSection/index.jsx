@@ -5,11 +5,8 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
 import CommentsNotFound from '../NotFound/CommentsNotFound';
-import {
-  postUserCommentService,
-  postUserReplyCommentService,
-} from './CommentSectionServices';
-
+import { postUserCommentService } from './CommentSectionServices';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
   const classes = useStyles();
@@ -65,45 +62,72 @@ const CommentSection = ({ courseId, user }) => {
 };
 
 const OtherComments = ({ comments, handleReply, user, courseId }) => {
+  const classes = useStyles();
   console.log('OtherComments render');
+  // Example
+  // we have 40 comment
+  // so limit initial is 40 - 10 = 30
+  const [limit, setLimit] = useState(comments.length - 10);
 
   return (
-    <div style={{ marginTop: '1rem' }}>
-      {comments
-        .slice(0)
-        .reverse()
-        .map((comment) => {
-          return (
-            <SubCommentComponent
-              key={comment._id}
-              comment={comment}
-              handleReply={handleReply}
-              user={user}
-              courseId={courseId}
-            />
-          );
-        })}
-    </div>
+    <>
+      <div style={{ marginTop: '1rem' }}>
+        {comments
+          // take 30 to 40
+          .slice(limit, comments.length)
+          // then reverse them to get the descending order (latest to oldest)
+          .reverse()
+          .map((comment) => {
+            return (
+              <SubCommentComponent
+                key={comment._id}
+                comment={comment}
+                handleReply={handleReply}
+                user={user}
+                courseId={courseId}
+              />
+            );
+          })}
+      </div>
+      {limit !== 0 && (
+        <Button
+          className={classes.buttonLoadMore}
+          // when clicking limit - 10 mean 30 - 10 = 20 ( so we have more 10 comment)
+          // from 20 - 30
+          onClick={() => setLimit(limit - 10 >= 0 ? limit - 10 : 0)}
+        >
+          Xem thêm đánh giá
+        </Button>
+      )}
+    </>
   );
 };
 
 const SubComment = ({ comment, user, courseId }) => {
   const classes = useStyles();
+  // set comment prop become state to easy control
   const [state, setState] = useState(comment);
+  // Array of reply from comment props
+  const [stateReply, setStateReply] = useState(comment.reply);
+  // Open/close reply
+  const [expandStateReply, setExpandStateReply] = useState(false);
+  // User input when clicking "Reply" button
   const [visible, setVisible] = useState(false);
 
   console.log('SubComment render');
 
   const handleSubmit = async (input) => {
-    let fakeState = state;
-    console.log(comment, input, user);
+    // deep copy stateReply
+    let fakeState = stateReply;
+    // call API
     const data = { content: input };
     const { data: dataComment, status } = await postUserCommentService(
       `/api/course/comments/reply?courseId=${courseId}&commentId=${comment._id}`,
       data
     );
-    fakeState.reply = [
-      ...fakeState.reply,
+    // After call successfully, add data to state
+    fakeState = [
+      ...fakeState,
       {
         id: dataComment.comment.id || uuidv4(),
         content: dataComment.comment.content,
@@ -111,7 +135,9 @@ const SubComment = ({ comment, user, courseId }) => {
         avatar: dataComment.comment.avatar,
       },
     ];
-    setState(fakeState);
+    // Rerender state
+    setStateReply(fakeState);
+    // Close user input
     setVisible(!visible);
   };
 
@@ -145,21 +171,34 @@ const SubComment = ({ comment, user, courseId }) => {
           </div>
         </div>
       </div>
-      <div>
-        {visible && (
-          <div style={{ margin: '1rem 0 1rem 4rem' }}>
-            <UserInputComponent
-              onSubmit={handleSubmit}
-              type="sub"
-              user={user}
-            />
-          </div>
-        )}
+      <div
+        style={{
+          margin: `${visible ? '1rem 0 1rem 4rem' : '0.5rem 0 0rem'}`,
+          height: `${visible ? '100%' : '0'}`,
+          overflowY: `${visible ? 'unset' : 'hidden'}`,
+        }}
+      >
+        <UserInputComponent onSubmit={handleSubmit} type="sub" user={user} />
       </div>
-      <div style={{ marginLeft: '4rem' }}>
-        {comment.reply &&
-          comment.reply.length > 0 &&
-          comment.reply.map((comment) => {
+      {stateReply.length > 0 && (
+        <div
+          className={classes.dropdownReplyComments}
+          onClick={() => setExpandStateReply(!expandStateReply)}
+        >
+          <ArrowDropDownIcon className={classes.dropdownReplyCommentsIcon} />
+          <span>Xem thêm {stateReply.length} bình luận</span>
+        </div>
+      )}
+      <div
+        style={{
+          marginLeft: '4rem',
+          height: `${expandStateReply ? '100%' : '0'}`,
+          overflowY: `${expandStateReply ? 'unset' : 'hidden'}`,
+        }}
+      >
+        {stateReply &&
+          stateReply.length > 0 &&
+          stateReply.map((comment) => {
             return (
               <div
                 key={comment.id}
@@ -177,7 +216,11 @@ const SubComment = ({ comment, user, courseId }) => {
                 />
                 <div style={{ marginLeft: '1rem' }}>
                   <Typography
-                    style={{ fontSize: 14, fontWeight: '500', lineHeight: '1' }}
+                    style={{
+                      fontSize: 14,
+                      fontWeight: '500',
+                      lineHeight: '1',
+                    }}
                   >
                     {comment.name}
                   </Typography>
@@ -226,7 +269,7 @@ const UserInput = ({ onSubmit, type = null, user }) => {
     <form onSubmit={handleSubmit}>
       <div className={classes.containerUserInput}>
         <img
-          src={user.avatar.url}
+          src={user?.avatar.url}
           style={{
             width: `${type ? '24px' : '48px'}`,
             height: `${type ? '24px' : '48px'}`,
