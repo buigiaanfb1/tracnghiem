@@ -17,7 +17,9 @@ const NavigationBar = () => {
 
   const { user, loading } = useSelector((state) => state.loadedUser);
   useEffect(() => {
-    dispatch(loadUser());
+    if (router.pathname !== '/course/[id]/exams/[attemptId]') {
+      dispatch(loadUser());
+    }
   }, [router]);
 
   const handleRenderNavigate = useCallback(() => {
