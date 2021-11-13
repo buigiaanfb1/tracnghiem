@@ -5,15 +5,18 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
 import CommentsNotFound from '../NotFound/CommentsNotFound';
-import { postUserCommentService } from './CommentSectionServices';
-import { useSession } from 'next-auth/client';
+import {
+  postUserCommentService,
+  postUserReplyCommentService,
+} from './CommentSectionServices';
+
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
   const classes = useStyles();
   const [state, setState] = useState([]);
   const { response, loading, error } = useAxios({
     method: 'get',
-    url: `/api/course/comments?id=${courseId}`,
+    url: `/api/course/comments?courseId=${courseId}`,
     headers: JSON.stringify({ accept: '*/*' }),
   });
 
@@ -25,9 +28,9 @@ const CommentSection = ({ courseId, user }) => {
 
   const handleSubmit = useCallback(
     async (input) => {
-      const data = { courseId, content: input };
+      const data = { content: input };
       const { data: dataComment, status } = await postUserCommentService(
-        '/api/course/comments',
+        `/api/course/comments?courseId=${courseId}`,
         data
       );
       if (status === 200) {
@@ -49,7 +52,11 @@ const CommentSection = ({ courseId, user }) => {
       </Typography>
       {user && <UserInputComponent onSubmit={handleSubmit} user={user} />}
       {state.length > 0 ? (
-        <OtherCommentsComponent comments={state} user={user} />
+        <OtherCommentsComponent
+          comments={state}
+          user={user}
+          courseId={courseId}
+        />
       ) : (
         <CommentsNotFound />
       )}
@@ -57,7 +64,7 @@ const CommentSection = ({ courseId, user }) => {
   );
 };
 
-const OtherComments = ({ comments, handleReply, user }) => {
+const OtherComments = ({ comments, handleReply, user, courseId }) => {
   console.log('OtherComments render');
 
   return (
@@ -72,6 +79,7 @@ const OtherComments = ({ comments, handleReply, user }) => {
               comment={comment}
               handleReply={handleReply}
               user={user}
+              courseId={courseId}
             />
           );
         })}
@@ -79,29 +87,31 @@ const OtherComments = ({ comments, handleReply, user }) => {
   );
 };
 
-const SubComment = ({ comment, user }) => {
+const SubComment = ({ comment, user, courseId }) => {
   const classes = useStyles();
   const [state, setState] = useState(comment);
   const [visible, setVisible] = useState(false);
 
   console.log('SubComment render');
 
-  const handleSubmit = (input) => {
+  const handleSubmit = async (input) => {
     let fakeState = state;
     console.log(comment, input, user);
-    // fakeState.reply = [
-    //   ...fakeState.reply,
-    //   {
-    //     id: uuidv4(),
-    //     input,
-    //     user: {
-    //       username: 'saith ce clare',
-    //       avatar:
-    //         'https://dmitripavlutin.com/static/813d689d1d6b5adc1a80618915bd9a5a/e10ee/instruments.webp',
-    //     },
-    //   },
-    // ];
-    // setState(fakeState);
+    const data = { content: input };
+    const { data: dataComment, status } = await postUserCommentService(
+      `/api/course/comments/reply?courseId=${courseId}&commentId=${comment._id}`,
+      data
+    );
+    fakeState.reply = [
+      ...fakeState.reply,
+      {
+        id: dataComment.comment.id || uuidv4(),
+        content: dataComment.comment.content,
+        name: dataComment.comment.name,
+        avatar: dataComment.comment.avatar,
+      },
+    ];
+    setState(fakeState);
     setVisible(!visible);
   };
 
@@ -160,7 +170,7 @@ const SubComment = ({ comment, user }) => {
                 }}
               >
                 <img
-                  src={comment.user.avatar}
+                  src={comment.avatar}
                   width="24px"
                   height="24px"
                   style={{ borderRadius: '50%' }}
@@ -169,7 +179,7 @@ const SubComment = ({ comment, user }) => {
                   <Typography
                     style={{ fontSize: 14, fontWeight: '500', lineHeight: '1' }}
                   >
-                    {comment.user.username}
+                    {comment.name}
                   </Typography>
                   <Typography
                     style={{
@@ -179,7 +189,7 @@ const SubComment = ({ comment, user }) => {
                       whiteSpace: 'pre',
                     }}
                   >
-                    {comment.input}
+                    {comment.content}
                   </Typography>
                 </div>
               </div>
