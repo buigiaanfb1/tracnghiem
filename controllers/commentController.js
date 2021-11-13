@@ -75,6 +75,8 @@ const replyComment = catchAsyncError(async (req, res, next) => {
     name: req.user.name,
     avatar: req.user.avatar.url,
     content: req.body.content,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   };
   let commentAfterSaved = null;
 

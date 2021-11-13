@@ -101,7 +101,7 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: '3.6rem',
     display: 'flex',
     alignItems: 'center',
-    color: '#5951ED',
+    color: '#918FFF',
     cursor: 'pointer',
     '& span': {
       fontWeight: 500,

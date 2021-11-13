@@ -4,9 +4,12 @@ import { Button, Typography } from '@material-ui/core';
 import TextareaAutosize from 'react-textarea-autosize';
 import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
+import { formatDistanceToNowStrict } from 'date-fns';
 import CommentsNotFound from '../NotFound/CommentsNotFound';
 import { postUserCommentService } from './CommentSectionServices';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import { vi } from 'date-fns/locale';
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
   const classes = useStyles();
@@ -63,7 +66,7 @@ const CommentSection = ({ courseId, user }) => {
 
 const OtherComments = ({ comments, handleReply, user, courseId }) => {
   const classes = useStyles();
-  console.log('OtherComments render');
+  console.log('OtherComments render', comments);
   // Example
   // we have 40 comment
   // so limit initial is 40 - 10 = 30
@@ -133,6 +136,8 @@ const SubComment = ({ comment, user, courseId }) => {
         content: dataComment.comment.content,
         name: dataComment.comment.name,
         avatar: dataComment.comment.avatar,
+        createdAt: dataComment.comment.createdAt,
+        updatedAt: dataComment.comment.updatedAt,
       },
     ];
     // Rerender state
@@ -141,14 +146,44 @@ const SubComment = ({ comment, user, courseId }) => {
     setVisible(!visible);
   };
 
+  const handleRenderTime = useCallback((dateCreatedAt) => {
+    if (!dateCreatedAt) {
+      return null;
+    }
+    let date = new Date(dateCreatedAt);
+    let time = formatDistanceToNowStrict(date, {
+      locale: vi,
+    });
+    return time + ' trước';
+  }, []);
+
   return (
     <>
       <div className={classes.containerOtherComments}>
         <img src={comment.avatar} />
         <div className={classes.otherCommentsContent}>
-          <Typography style={{ fontSize: 14, fontWeight: '500' }}>
-            {comment.name}
-          </Typography>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Typography
+              style={{
+                display: 'inline-block',
+                fontSize: 14,
+                fontWeight: '500',
+              }}
+            >
+              {comment.name}
+            </Typography>
+            <span
+              style={{
+                marginLeft: '0.5rem',
+                fontSize: 12,
+                fontWeight: '500',
+                opacity: '0.7',
+              }}
+            >
+              {handleRenderTime(comment.createdAt)}
+              {/* {comment.createdAt} */}
+            </span>
+          </div>
           <Typography
             style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre' }}
           >
@@ -185,8 +220,19 @@ const SubComment = ({ comment, user, courseId }) => {
           className={classes.dropdownReplyComments}
           onClick={() => setExpandStateReply(!expandStateReply)}
         >
-          <ArrowDropDownIcon className={classes.dropdownReplyCommentsIcon} />
-          <span>Xem thêm {stateReply.length} bình luận</span>
+          {expandStateReply ? (
+            <>
+              <ArrowDropUpIcon className={classes.dropdownReplyCommentsIcon} />
+              <span>Ẩn {stateReply.length} bình luận</span>
+            </>
+          ) : (
+            <>
+              <ArrowDropDownIcon
+                className={classes.dropdownReplyCommentsIcon}
+              />
+              <span>Xem {stateReply.length} bình luận</span>
+            </>
+          )}
         </div>
       )}
       <div
@@ -215,15 +261,27 @@ const SubComment = ({ comment, user, courseId }) => {
                   style={{ borderRadius: '50%' }}
                 />
                 <div style={{ marginLeft: '1rem' }}>
-                  <Typography
-                    style={{
-                      fontSize: 14,
-                      fontWeight: '500',
-                      lineHeight: '1',
-                    }}
-                  >
-                    {comment.name}
-                  </Typography>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <Typography
+                      style={{
+                        display: 'inline-block',
+                        fontSize: 14,
+                        fontWeight: '500',
+                      }}
+                    >
+                      {comment.name}
+                    </Typography>
+                    <span
+                      style={{
+                        marginLeft: '0.5rem',
+                        fontSize: 12,
+                        fontWeight: '500',
+                        opacity: '0.7',
+                      }}
+                    >
+                      {handleRenderTime(comment.createdAt)}
+                    </span>
+                  </div>
                   <Typography
                     style={{
                       fontSize: 14,
