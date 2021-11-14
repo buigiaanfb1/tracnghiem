@@ -66,7 +66,6 @@ const CommentSection = ({ courseId, user }) => {
 
 const OtherComments = ({ comments, handleReply, user, courseId }) => {
   const classes = useStyles();
-  console.log('OtherComments render', comments);
   // Example
   // we have 40 comment
   // so limit initial is 40 - 10 = 30
@@ -92,7 +91,7 @@ const OtherComments = ({ comments, handleReply, user, courseId }) => {
             );
           })}
       </div>
-      {limit !== 0 && (
+      {limit !== 0 && comments.length > 10 && (
         <Button
           className={classes.buttonLoadMore}
           // when clicking limit - 10 mean 30 - 10 = 20 ( so we have more 10 comment)
@@ -185,7 +184,7 @@ const SubComment = ({ comment, user, courseId }) => {
             </span>
           </div>
           <Typography
-            style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre' }}
+            style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre-line' }}
           >
             {comment.content}
           </Typography>
@@ -287,7 +286,7 @@ const SubComment = ({ comment, user, courseId }) => {
                       fontSize: 14,
                       lineHeight: '1.2',
                       marginTop: '0.25rem',
-                      whiteSpace: 'pre',
+                      whiteSpace: 'pre-line',
                     }}
                   >
                     {comment.content}

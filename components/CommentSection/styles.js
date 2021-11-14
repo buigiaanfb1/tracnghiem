@@ -23,6 +23,8 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     marginTop: '1rem',
     alignItems: 'flex-start',
+    width: '100%',
+    wordBreak: 'break-all',
     '& img': {
       width: '3rem',
       height: '3rem',
