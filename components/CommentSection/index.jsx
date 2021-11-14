@@ -6,9 +6,17 @@ import { uuidv4 } from '../../common/uuid';
 import useAxios from '../../hooks/useAxios';
 import { formatDistanceToNowStrict } from 'date-fns';
 import CommentsNotFound from '../NotFound/CommentsNotFound';
-import { postUserCommentService } from './CommentSectionServices';
+import {
+  postUserCommentService,
+  reactCommentService,
+} from './CommentSectionServices';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
+import ThumbUpRoundedIcon from '@material-ui/icons/ThumbUpRounded';
+import ThumbDownRoundedIcon from '@material-ui/icons/ThumbDownRounded';
+
 import { vi } from 'date-fns/locale';
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
@@ -184,24 +192,29 @@ const SubComment = ({ comment, user, courseId }) => {
             </span>
           </div>
           <Typography
-            style={{ fontSize: 14, lineHeight: '1.2', whiteSpace: 'pre-line' }}
+            style={{
+              fontSize: 14,
+              lineHeight: '1.2',
+              whiteSpace: 'pre-line',
+              margin: '0.25rem 0',
+            }}
           >
             {comment.content}
           </Typography>
-          <div
-            style={{
-              display: 'inline',
-              backgroundColor: 'transparent',
-              border: 'none',
-              marginTop: '0.5rem',
-              fontWeight: 500,
-              fontSize: '14px',
-              cursor: 'pointer',
-              opacity: '0.7',
-            }}
-            onClick={() => setVisible(!visible)}
-          >
-            Reply
+          <div className={classes.containerTools}>
+            {user && (
+              <ButtonReactionComponent
+                comment={comment}
+                courseId={courseId}
+                user={user}
+              />
+            )}
+            <Button
+              className={classes.buttonReplyContainer}
+              onClick={() => setVisible(!visible)}
+            >
+              Reply
+            </Button>
           </div>
         </div>
       </div>
@@ -285,7 +298,7 @@ const SubComment = ({ comment, user, courseId }) => {
                     style={{
                       fontSize: 14,
                       lineHeight: '1.2',
-                      marginTop: '0.25rem',
+                      margin: '0.25rem 0',
                       whiteSpace: 'pre-line',
                     }}
                   >
@@ -370,8 +383,108 @@ const UserInput = ({ onSubmit, type = null, user }) => {
   );
 };
 
+const ButtonReaction = ({ comment, courseId, user }) => {
+  const classes = useStyles();
+  const [like, setLike] = useState(null);
+
+  useEffect(() => {
+    checkUserAlready();
+  }, []);
+
+  const checkUserAlready = () => {
+    const findUserLikeIndex = comment.like.find((userLike) => {
+      return user._id === userLike._id;
+    });
+    if (findUserLikeIndex) {
+      setLike(true);
+    }
+    const findUserDislikeIndex = comment.dislike.find((userDislike) => {
+      return user._id === userDislike._id;
+    });
+    if (findUserDislikeIndex) {
+      setLike(false);
+    }
+  };
+
+  const [amountReaction, setAmountReaction] = useState({
+    likeAmount: comment.like.length || 0,
+    dislikeAmount: comment.dislike.length || 0,
+  });
+
+  const handleLikeAndDislike = (isLike) => {
+    if (isLike) {
+      // isLike === true mean user click like
+      // so if state already is true we set back to null,
+      // other, we set to true
+      setAmountReaction({
+        likeAmount:
+          like === isLike
+            ? amountReaction.likeAmount - 1
+            : amountReaction.likeAmount + 1,
+        dislikeAmount:
+          like != null && !like === isLike
+            ? amountReaction.dislikeAmount - 1
+            : amountReaction.dislikeAmount,
+      });
+      like === isLike ? setLike(null) : setLike(true);
+      // Call API
+      reactCommentService(
+        `/api/course/comments/perform_comment_action?courseId=${courseId}&type=like&commentId=${comment._id}`
+      );
+    } else {
+      // vice versa
+      setAmountReaction({
+        likeAmount:
+          !like === isLike
+            ? amountReaction.likeAmount - 1
+            : amountReaction.likeAmount,
+        dislikeAmount:
+          like === isLike
+            ? amountReaction.dislikeAmount - 1
+            : amountReaction.dislikeAmount + 1,
+      });
+      like === isLike ? setLike(null) : setLike(false);
+      reactCommentService(
+        `/api/course/comments/perform_comment_action?courseId=${courseId}&type=dislike&commentId=${comment._id}`
+      );
+    }
+  };
+
+  return (
+    <>
+      <div className={classes.containerWholeInfoButtonLikeDislike}>
+        <Button
+          className={classes.buttonLikeDislikeCommentContainer}
+          onClick={() => handleLikeAndDislike(true)}
+        >
+          {like === true ? <ThumbUpRoundedIcon /> : <ThumbUpOutlinedIcon />}
+        </Button>
+        <span style={{ marginLeft: '0.2rem', opacity: '0.7' }}>
+          {amountReaction.likeAmount}
+        </span>
+      </div>
+      <div className={classes.containerWholeInfoButtonLikeDislike}>
+        <Button
+          className={classes.buttonLikeDislikeCommentContainer}
+          onClick={() => handleLikeAndDislike(false)}
+        >
+          {like !== null && like === false ? (
+            <ThumbDownRoundedIcon />
+          ) : (
+            <ThumbDownOutlinedIcon />
+          )}
+        </Button>
+        <span style={{ marginLeft: '0.2rem', opacity: '0.7' }}>
+          {amountReaction.dislikeAmount}
+        </span>
+      </div>
+    </>
+  );
+};
+
 const UserInputComponent = React.memo(UserInput);
 const SubCommentComponent = React.memo(SubComment);
 const OtherCommentsComponent = React.memo(OtherComments);
+const ButtonReactionComponent = React.memo(ButtonReaction);
 
 export default React.memo(CommentSection);

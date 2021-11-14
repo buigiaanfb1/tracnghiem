@@ -22,6 +22,14 @@ const commentSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please enter your content'],
       },
+      like: {
+        type: Array,
+        default: [],
+      },
+      dislike: {
+        type: Array,
+        default: [],
+      },
       reply: { type: Array, default: [] },
       createdAt: {
         type: Date,

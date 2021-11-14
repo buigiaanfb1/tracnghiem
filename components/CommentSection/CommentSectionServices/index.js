@@ -20,3 +20,18 @@ export const postUserCommentService = async (url, dataFromUser) => {
     console.log(err);
   }
 };
+
+export const reactCommentService = async (url) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const { data, status } = await axios.post(url, null, config);
+    return { data, status };
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -35,6 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: '1rem',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'flex-start',
   },
   inputAndButtons: {
     marginLeft: '1rem',
@@ -116,6 +117,51 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: '#5951ED',
       color: '#fff',
       borderRadius: '24px',
+    },
+  },
+  containerTools: {
+    display: 'flex',
+    fontWeight: 500,
+    fontSize: '14px',
+    transform: 'translate(-8px, 0)',
+  },
+
+  buttonReplyContainer: {
+    display: 'flex',
+    backgroundColor: 'transparent',
+    border: 'none',
+    fontWeight: 500,
+    fontSize: '14px',
+    cursor: 'pointer',
+    opacity: '0.7',
+  },
+
+  buttonLikeDislikeCommentContainer: {
+    '&.MuiButton-root': {
+      borderRadius: '50%',
+      overflow: 'hidden',
+      minWidth: '32px',
+      height: '32px',
+      '& .MuiSvgIcon-root': {
+        fontSize: '16px',
+        width: '16px',
+        height: '16px',
+      },
+      '& .MuiButton-label': {
+        width: '16px',
+      },
+    },
+    '&.MuiButtonBase-root': {
+      justifyContent: 'flex-start',
+    },
+  },
+  containerWholeInfoButtonLikeDislike: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: '0.5rem',
+    '& span': {
+      // marginLeft: '0.2rem',
+      fontSize: '12px',
     },
   },
 }));
