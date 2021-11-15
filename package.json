@@ -45,7 +45,7 @@
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.16",
     "swr": "^1.0.1",
-    "validator": "^13.6.0",
+    "validator": "^13.7.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
