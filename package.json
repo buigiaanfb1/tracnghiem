@@ -44,6 +44,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.16",
+    "slugify": "^1.6.2",
     "swr": "^1.0.1",
     "validator": "^13.7.0",
     "yup": "^0.32.11"

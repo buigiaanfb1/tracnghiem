@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const shortid = require('shortid');
+const slugify = require('slugify');
 
 shortid.characters(
   '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@'

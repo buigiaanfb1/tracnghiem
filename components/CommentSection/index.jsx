@@ -16,7 +16,7 @@ import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
 import ThumbUpRoundedIcon from '@material-ui/icons/ThumbUpRounded';
 import ThumbDownRoundedIcon from '@material-ui/icons/ThumbDownRounded';
-
+import Tooltip from '@material-ui/core/Tooltip';
 import { vi } from 'date-fns/locale';
 // courseId is ObjectID mongoDB not slugId
 const CommentSection = ({ courseId, user }) => {
@@ -453,27 +453,38 @@ const ButtonReaction = ({ comment, courseId, user }) => {
   return (
     <>
       <div className={classes.containerWholeInfoButtonLikeDislike}>
-        <Button
-          className={classes.buttonLikeDislikeCommentContainer}
-          onClick={() => handleLikeAndDislike(true)}
-        >
-          {like === true ? <ThumbUpRoundedIcon /> : <ThumbUpOutlinedIcon />}
-        </Button>
+        <Tooltip title={`${like ? 'Bỏ thích' : 'Thích'}`} arrow>
+          <Button
+            className={classes.buttonLikeDislikeCommentContainer}
+            onClick={() => handleLikeAndDislike(true)}
+          >
+            {like === true ? <ThumbUpRoundedIcon /> : <ThumbUpOutlinedIcon />}
+          </Button>
+        </Tooltip>
         <span style={{ marginLeft: '0.2rem', opacity: '0.7' }}>
           {amountReaction.likeAmount}
         </span>
       </div>
       <div className={classes.containerWholeInfoButtonLikeDislike}>
-        <Button
-          className={classes.buttonLikeDislikeCommentContainer}
-          onClick={() => handleLikeAndDislike(false)}
+        <Tooltip
+          title={`${
+            like === null || like === true
+              ? 'Không thích'
+              : 'Xoá lượt không thích'
+          }`}
+          arrow
         >
-          {like !== null && like === false ? (
-            <ThumbDownRoundedIcon />
-          ) : (
-            <ThumbDownOutlinedIcon />
-          )}
-        </Button>
+          <Button
+            className={classes.buttonLikeDislikeCommentContainer}
+            onClick={() => handleLikeAndDislike(false)}
+          >
+            {like !== null && like === false ? (
+              <ThumbDownRoundedIcon />
+            ) : (
+              <ThumbDownOutlinedIcon />
+            )}
+          </Button>
+        </Tooltip>
         <span style={{ marginLeft: '0.2rem', opacity: '0.7' }}>
           {amountReaction.dislikeAmount}
         </span>

@@ -2,8 +2,17 @@ import Course from '../models/course';
 import catchAsyncError from '../middlewares/catchAsyncError';
 import APIFeatures from '../utils/apiFeatures';
 import ErrorHandler from '../utils/errorHandler';
+import slugify from 'slugify';
 
 const newCourse = catchAsyncError(async (req, res, next) => {
+  req.body.slug = slugify(req.body.name, {
+    replacement: '-', // replace spaces with replacement character, defaults to `-`
+    remove: /[*+~.()'"!:@]/g, // remove characters that match regex, defaults to `undefined`
+    lower: true, // convert to lower case, defaults to `false`
+    strict: false, // strip special characters except replacement, defaults to `false`
+    locale: 'vi', // language code of the locale to use
+    trim: true, // trim leading and trailing replacement chars, defaults to `true`
+  });
   const course = await Course.create(req.body);
   return res.status(200).json({
     course,
